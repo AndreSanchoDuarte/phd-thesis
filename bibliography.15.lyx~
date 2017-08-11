@@ -1,0 +1,474 @@
+#LyX 1.5.6 created this file. For more info see http://www.lyx.org/
+\lyxformat 276
+\begin_document
+\begin_header
+\textclass book
+\language english
+\inputencoding auto
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\paperfontsize default
+\spacing single
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\cite_engine basic
+\use_bibtopic false
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\author "" 
+\end_header
+
+\begin_body
+
+\begin_layout Bibliography
+\begin_inset LatexCommand bibitem
+key "key-lister-iter-codac"
+
+\end_inset
+
+J.B.
+ Lister, et al., 
+\begin_inset Quotes eld
+\end_inset
+
+The status of the ITER CODAC conceptual design
+\begin_inset Quotes erd
+\end_inset
+
+ , Fusion Engineering and Design 83 (2008) 164-169.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset LatexCommand bibitem
+key "key-freidberg-plasma physics"
+
+\end_inset
+
+ J.
+ P.
+ Freidberg, Plasma Physics and Fusion Energy, Cambridge University Press,
+ 2007.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset LatexCommand bibitem
+key "key-wesson_tokamaks"
+
+\end_inset
+
+J.
+ A.
+ Wesson, Tokamaks, Clarendon Press, 1997.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset LatexCommand bibitem
+key "key-breeding-blanket"
+
+\end_inset
+
+D.
+ A.
+ H.
+ Hanaor, et al., 
+\begin_inset Quotes eld
+\end_inset
+
+Solution based synthesis of mixed-phase materials in the Li2TiO3-Li4SiO4
+ system
+\begin_inset Quotes erd
+\end_inset
+
+, Journal of Nuclear Materials 456 (2014), 151-161.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset LatexCommand bibitem
+key "key-compass-website"
+
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+COMPASS tokamak
+\begin_inset Quotes erd
+\end_inset
+
+, [Online].
+ http://www.ipp.cas.cz/vedecka_struktura_ufp/tokamak/tokamak_compass/.
+ [Accessed 2016].
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset LatexCommand bibitem
+key "key-panek-compass-reinstall"
+
+\end_inset
+
+R.
+ Panek, et al., 
+\begin_inset Quotes eld
+\end_inset
+
+Reinstallation of the COMPASS-D tokamak in IPPASCR
+\begin_inset Quotes erd
+\end_inset
+
+, Czechoslovak Journal of Physics 56 (2006) 125-137.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset LatexCommand bibitem
+key "key-isttok-website"
+
+\end_inset
+
+ 
+\begin_inset Quotes eld
+\end_inset
+
+ISTTOK tokamak
+\begin_inset Quotes erd
+\end_inset
+
+, [Online].
+ www.ipfn.ist.utl.pt/isttok/.
+ [Accessed 2016].
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset LatexCommand bibitem
+key "key-ivo-isttok-realtime-arch"
+
+\end_inset
+
+I.
+ Carvalho, et al., 
+\begin_inset Quotes eld
+\end_inset
+
+ISTTOK real-time architecture
+\begin_inset Quotes erd
+\end_inset
+
+, Fusion Engineering and Design, 89, (2014), 195-203.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset LatexCommand bibitem
+key "key-ivo-tese-phd"
+
+\end_inset
+
+I.
+ Carvalho, Real-time control for long ohmic alternate current discharges,
+ PhD Thesis, Instituto Superior Técnico, Lisbon, 2013.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset LatexCommand bibitem
+key "key-valcarcel-atca-for-compass"
+
+\end_inset
+
+D.F.
+ Valcárcel, et al., 
+\begin_inset Quotes eld
+\end_inset
+
+An ATCA Embedded Data Acquisition and Control System for the Compass tokamak
+\begin_inset Quotes erd
+\end_inset
+
+, Fusion Engineering and Design 84 (2009), 1901-1904.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset LatexCommand bibitem
+key "key-jet-website"
+
+\end_inset
+
+“JET tokamak”, [Online].
+ Available: https://www.euro-fusion.org/jet/.
+ [Accessed 2016].
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset LatexCommand bibitem
+key "key-krom-codas-jet"
+
+\end_inset
+
+J.G.
+ Krom, 
+\begin_inset Quotes eld
+\end_inset
+
+The evolution of control and data acquisition at JET
+\begin_inset Quotes erd
+\end_inset
+
+, Fusion Engineering and Design 43 (1999) 265-273.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset LatexCommand bibitem
+key "key-vega-new-develop-jet"
+
+\end_inset
+
+J.
+ Vega, et al., 
+\begin_inset Quotes eld
+\end_inset
+
+New developments at JET in diagnostics, real-time control, data acquisition
+ and information retrieval with potential application to ITER
+\begin_inset Quotes erd
+\end_inset
+
+, Fusion Engineering and Design 84 (2009) 2136-2144.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset LatexCommand bibitem
+key "key-w7x-website"
+
+\end_inset
+
+“Wendelstein 7-X stellarator”, [Online].
+ Available: https://www.ipp.mpg.de/16931/einfuehrung.
+ [Accessed 2016].
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset LatexCommand bibitem
+key "key-bluhm-w7x-codas"
+
+\end_inset
+
+T.
+ Bluhm, et al., 
+\begin_inset Quotes eld
+\end_inset
+
+Wendelstein 7-X's CoDaStation: A modular application for scientific data
+ acquisition
+\begin_inset Quotes erd
+\end_inset
+
+, Fusion Engineering and Design 89 (2014) 658-662.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset LatexCommand bibitem
+key "key-nif-website"
+
+\end_inset
+
+“National Ignition Facility”, [Online].
+ Available: https://lasers.llnl.gov/.
+ [Accessed 2016].
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset LatexCommand bibitem
+key "key-carey-nif-repository"
+
+\end_inset
+
+R.
+ Carey, et al., "The National Ignition Facility Data Repository", Proceedings
+ Of ICALEPCS2009, Kobe, Japan.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset LatexCommand bibitem
+key "key-neto-firesignal"
+
+\end_inset
+
+A.
+ Neto, et al., “FireSignal—Data acquisition and control system software
+\begin_inset Quotes erd
+\end_inset
+
+, Fusion Engineering and Design 82 (2007), 1359-1364.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset LatexCommand bibitem
+key "key-corba"
+
+\end_inset
+
+Object Management Group, CORBA/IIOP Specification, Document — format/04-03-01
+ (CORBA, v3.0.3), March 2004.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset LatexCommand bibitem
+key "key-neto-sdas"
+
+\end_inset
+
+A.
+ Neto, et al., “A standard data access layer for fusion devices R&D programs
+\begin_inset Quotes erd
+\end_inset
+
+, Fusion Engineering and Design 82 (2007), 1315-1320.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset LatexCommand bibitem
+key "key-neto-marte"
+
+\end_inset
+
+A.
+ Neto, et al., 
+\begin_inset Quotes eld
+\end_inset
+
+MARTe: A Multiplatform Real-Time Framework
+\begin_inset Quotes erd
+\end_inset
+
+, IEEE Transactions On Nuclear Science 57 (2010), 479-486.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset LatexCommand bibitem
+key "key-batista-atca-jet"
+
+\end_inset
+
+A.
+ J.
+ N.
+ Batista, et al., 
+\begin_inset Quotes eld
+\end_inset
+
+ATCA control system hardware for the plasma vertical stabilization in the
+ jet tokamak
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset LatexCommand bibitem
+key "key-rimini-vertical-stab-jet"
+
+\end_inset
+
+F.
+ G.
+ Rimini, et al., 
+\begin_inset Quotes eld
+\end_inset
+
+First plasma operation of the enhanced JET vertical stabilisation system
+\begin_inset Quotes erd
+\end_inset
+
+, Fusion Engineering and Design 86 (2011), 539-543.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset LatexCommand bibitem
+key "key-ivo-isttok-ac-discharges"
+
+\end_inset
+
+I.
+ Carvalho, et al., “Real-time control for long ohmic alternate current discharges
+”, Fusion Engineering and Design 89 (2014), 576-581.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset LatexCommand bibitem
+key "key-janky-compass-realtime"
+
+\end_inset
+
+F.
+ Janky, et al., 
+\begin_inset Quotes eld
+\end_inset
+
+Upgrade of the COMPASS tokamak real-time control system
+\begin_inset Quotes erd
+\end_inset
+
+, Fusion Engineering and Design 89 (2014), 186-194.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset LatexCommand bibitem
+key "key-urban-cdb"
+
+\end_inset
+
+J.
+ Urban, et al., “Integrated data acquisition, storage, retrieval and processing
+ using the COMPASS DataBase (CDB)”, Fusion Engineering and Design 89 (2014),
+ 712-716.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset LatexCommand bibitem
+key "key-valcarcel-realtime-compass"
+
+\end_inset
+
+D.F.
+ Valcárcel, et al., “Real-Time Software for the COMPASS Tokamak Plasma Control”,
+ Fusion Engineering and Design 85 (2010), 470-473.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset LatexCommand bibitem
+key "key-how-trends"
+
+\end_inset
+
+J.
+ A.
+ How, et al., 
+\begin_inset Quotes eld
+\end_inset
+
+Trends in computing systems for large fusion experiments
+\begin_inset Quotes erd
+\end_inset
+
+, Fusion Engineering and Design 70 (2004), 115-122.
+\end_layout
+
+\end_body
+\end_document

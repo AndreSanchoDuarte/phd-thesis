@@ -1,0 +1,4581 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass book
+\use_default_options false
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize a4paper
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 1
+\use_package mhchem 0
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 2
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+frontmatter
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter*
+Resumo
+\end_layout
+
+\begin_layout Standard
+O sistema de controlo e aquisição de dados é uma parte importante de qualquer
+ experiência moderna de física.
+ À medida de as fronteiras do conhecimento avançam assim também crescem
+ as especificações para estes sistemas e isto tem de ser tomado em conta
+ ao desenhá-los.
+ Além disso, visto que estas experiências podem durar vários anos ou mesmo
+ décadas, é necessário considerar a futuras expansões e atualizações.
+ Em investigação de energia de fusão é comum ver os subsistemas em torno
+ do reator como fazendo parte de um todo e assim ter as tarefas de configuração,
+ controlo, aquisição de dados, acesso a dados e segurança da máquina como
+ parte dum sistema unificado.
+ Tal sistema é chamado de CODAC, vindo do inglês 
+\emph on
+Control, Data Access and Communications
+\emph default
+ (controlo, acesso a dados e comunicações).
+ Tipicamente estes seguem uma estrutura hierárquica em árvore e usam tecnologia
+ proprietária.
+ Esta tese é baseada no trabalho realizado no CODAC do Tokamak COMPASS,
+ uma máquina de tamanho médio para investigação em fusão, que esteve instalada
+ em Culham, Reino Unido e foi transferida para Praga, na República Checa.
+ Este CODAC é baseado no sistema 
+\emph on
+FireSignal
+\emph default
+, que está a ser utilizado no tokamak ISTTOK (Lisboa, Portugal) e foi usado
+ pelo CASTOR, que antecedeu o COMPASS em Praga.
+ A operação do COMPASS é baseada em placas de controlo e aquisição de dados,
+ desenvolvidas pelo IPFN.
+ Ao desenvolver 
+\emph on
+software
+\emph default
+ e 
+\emph on
+drivers
+\emph default
+ para integrar no CODAC diagnósticos e atuadores foi necessário não só ter
+ em conta a física por detrás destes bem como também as capacidades do 
+\emph on
+hardware
+\emph default
+.
+ Durante este trabalho, um sistema de controlo em tempo real baseado na
+ plataforma MARTe foi integrado com sucesso, tendo partes da operação sido
+ automatizadas e permitindo que os dados fossem transferidos para a base
+ de dados central.
+ Diagnósticos, tais como a reflectometria, foram igualmente integrados com
+ sucesso, permitindo aos operadores configurá-los usando uma interface comum,
+ e automatizando a fase de preparação o mais possível.
+ Foi também necessário desenvolver ferramentas de acesso à base de dados
+ que tivessem em conta as características do COMPASS.
+ Esta tese apresenta uma análise geral de desenho de CODAC para experiências
+ de física.
+ Desafios comuns como: crescimento de volume de dados, integração de eletrónica
+ mais rápida e novas tecnologias são estudadas com o objetivo de propor
+ um estrutura mais flexível e com expansão em mente.
+ 
+\end_layout
+
+\begin_layout Chapter*
+Abstract
+\end_layout
+
+\begin_layout Standard
+The control and data acquisition system is an important part of every modern
+ physics experiment.
+ As the boundaries of knowledge move forward, so do the requirements for
+ these systems and this must be taken into account when designing them.
+ Also, since experiments can span the course of several years or even decades,
+ expansion and upgrade must also be considered.
+ In fusion energy research it is common to view the sub-systems around the
+ reactor as part of a whole and having the different tasks of configuration,
+ control, data acquisition, data access and machine security as part of
+ a unified system.
+ Such a system is called a CODAC, standing for Control, Data Access and
+ Communications.
+ Typically they follow a hierarchical, tree-like structure and use proprietary
+ technology.
+ This thesis is based on the work developed on the CODAC of COMPASS Tokamak,
+ a medium-sized fusion research machine that was installed in Culham, UK,
+ and was transferred to Prague, in the Czech Republic.
+ The CODAC is based on the FireSignal system that is being used at the ISTTOK
+ tokamak (Lisbon, Portugal) and was used in CASTOR, the predecessor of COMPASS
+ in Prague.
+ The operation of COMPASS is based on the ATCA control and acquisition boards
+ developed on IPFN.
+ When developing software and drivers for integrating diagnostics and actuators
+ on the CODAC, it was necessary not only to take into account the physics
+ behind them, but also the hardware capabilities.
+ During this work, a real-time control system based on MARTe was successfully
+ integrated, with parts of the operation being automated and data being
+ transferred to the main database.
+ Diagnostics such as reflectometry were also successfully integrated on
+ the system, allowing operators to configure them on a common interface
+ and automating the setup phase as much as possible.
+ It was also necessary to develop database access tools that took into account
+ the characteristics of COMPASS.
+ This thesis makes a broad analysis of CODAC design for physics experiments
+ in general.
+ Common challenges such as: increasing data volume, integration of faster
+ electronics and new technologies; are taken into consideration to propose
+ a structure that is more flexible and with expansion in mind.
+ 
+\end_layout
+
+\begin_layout Chapter*
+Palavras-chave/Keywords
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "50col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status collapsed
+
+\begin_layout Plain Layout
+CODAC
+\end_layout
+
+\begin_layout Plain Layout
+Tempo real
+\end_layout
+
+\begin_layout Plain Layout
+Armazenamento de dados
+\end_layout
+
+\begin_layout Plain Layout
+Pesquisa de sinais
+\end_layout
+
+\begin_layout Plain Layout
+Escalabilidade
+\end_layout
+
+\end_inset
+
+
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "50col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status collapsed
+
+\begin_layout Plain Layout
+CODAC
+\end_layout
+
+\begin_layout Plain Layout
+Real-time
+\end_layout
+
+\begin_layout Plain Layout
+Data storage
+\end_layout
+
+\begin_layout Plain Layout
+Signal query
+\end_layout
+
+\begin_layout Plain Layout
+Scalability
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter*
+Acknowledgements
+\end_layout
+
+\begin_layout Standard
+I would like to thank in first place to the Instituto de Plasmas e Fusão
+ Nuclear and its president, Doctor Bruno Gonçalves for allowing me to work
+ on this facility and for everything that was put at my disposal.
+ 
+\end_layout
+
+\begin_layout Standard
+I would like to thank my supervisor, Prof.
+ Bernardo Carvalho, for his support, advice and patience during all these
+ years.
+\end_layout
+
+\begin_layout Standard
+I would like to thank the Engineering team at IPFN, specially those whom
+ I worked more closely, for their support, advices and also friendship.
+ A heartfelt thank you to Prof.
+ Horácio Fernandes, Doctor Jorge Sousa who were almost my co-supervisors.
+ I also thank my colleagues André Neto, Ivo Carvalho, Daniel Valcárcel,
+ Bruno Santos and João Fortunato, who helped me during this work and with
+ whom I shared several work trips abroad.
+\end_layout
+
+\begin_layout Standard
+I would like to thank the COMPASS team, namely Doctor Jan Stockel, Doctor
+ Radomír Panék and Doctor Martin Hron, for inviting me to work with them
+ at Prague and for all the support, not just professional, they gave me
+ while I was working there.
+ I would also like to extend a special thanks to those whom I worked more
+ closely: Filip Janky, Jan Písačka, Jakub Urban and Richard Papřok.
+ I wish them all successed on their projects.
+\end_layout
+
+\begin_layout Standard
+I would also like to extend these acknowledgements, to my family and friends,
+ specially my parents who suported me and gave me courage even in the worst
+ times.
+ Finally, I would like to remember my godfather who was one of my best friends
+ during my entire life and always helped me anyway he could, but tragically
+ passed away.
+ May he rest in peace.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FloatList figure
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FloatList table
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+mainmatter
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Introduction
+\end_layout
+
+\begin_layout Standard
+Data acquisition is a key aspect of every experiment, since without it nothing
+ can be learned.
+ During the history of science, instrumentation and knowledge formed a feedback
+ loop, where better instruments have provided humans with better understanding
+ of natural fenomena which allows the develpment of more advanced instruments.
+ This relation is cleary visible on the development of electronics during
+ the past decades.
+ Long running physics experiments are naturally sensitive to these developments
+ and the design of their data acquisition systems must take this into account.
+ As these systems become ever more complex, the concept of CODAC emerges
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-lister-iter-codac"
+
+\end_inset
+
+.
+ CODAC stands for Control, Data Access and Communication and can be considered
+ an extension of the CODAS (control and data acquisition system) as it treats
+ all systems that are part of an experiment (namely control of the experiment,
+ data collection, data access and plant security) as a whole.
+ Although the specific needs of an experiment must be taken into account
+ when designing a CODAC, there are several key features that should be taken
+ into acount.
+ This thesis uses the implementation of a CODAC for a specific experiment
+ as the starting point for a study on how to design a CODAC for modern,
+ large physicals experiments, taking into account not just their specific
+ needs but also on a broader view.
+\end_layout
+
+\begin_layout Section
+Fusion Research and Engineering
+\end_layout
+
+\begin_layout Standard
+Fusion is a nuclear reaction where light elements are merged (fused) into
+ a another, heavier, element 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-freidberg-plasma physics"
+
+\end_inset
+
+.
+ Although any element can be fused this way, it typicaly involves hydrogen
+ and its isotopes, deuterium and tritium, being this the main reaction that
+ powers our Sun.
+ Since this reaction produces a great amount of energy, the main goal for
+ fusion research is to apply it to produce electricity, as an efficient
+ and clean alternative to existing power sources, namely fossil fules.
+ Of all the fusion reactions available the deuterium-tritium technology
+ is the most promissing: not only is the most energetic, it is also the
+ one that occurs at faster rate.
+ Besides, deuterium is abundant on ocean water, from where it can be easily
+ extracted and tritium, although not occuring naturaly on Earth, can be
+ obtained from Lithium which is a very common metal.
+ However this reaction also generates fast neutrons that activate the structures
+ of a fusion reactor, this being its biggest environmental issue.
+ These same neutrons, on the other hand, can be used to breed tritium from
+ lithium, meaning that there should be no need to handle tritium (which
+ is radioactive itself) outside of the fusion chamber 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-breeding-blanket"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+In order for fusion reactions to occur certain densities and temperatures
+ are required and for these to be fullfilled the elements must be on a confined
+ plasma state.
+ There are three ways to confine a plasma: gravitational, magnetic and inertial.
+ Gravitational confinement is the one responsible for energy production
+ in stars, so it is not viable on Earth.
+ Inertial confinement uses powerful lasers to compress fusion fuel pellets
+ during short periods of time.
+ Magnetic confinement uses the fact that ions and electrons follow magnetic
+ lines to keep the plasma inside a partial-vacuum chamber.
+ The most common magnetic configurations are the Tokamak and the Stellarator.
+ Both have toroidal shapes, their main difference being how a poloidal magnetic
+ field, necessary to stabilize the plasma, is generated: in a tokamak a
+ plasma current is induced by varying the magnetic flux on the central core
+ (like in a transformer); in a stellarator by specially shaped external
+ coils.
+ Until now, the tokamak is the most successful magnetic geometry and is
+ widely considered the best candidate for a commercial fusion power plant
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-wesson_tokamaks"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Images/tok_and_stell_gb.gif
+	width 100line%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Drawing of typical Tokamak and Stellarator.
+ Here we can see the different arrnagements of their coils 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-tokamak-and-stella"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+COMPASS
+\end_layout
+
+\begin_layout Standard
+Tokamak COMPASS (COMPact ASSembly) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-compass-website"
+
+\end_inset
+
+ is installed in the Institute of Plasma Physics (IPP) of the Academy of
+ Sciences of the Czech Republic since 2006.
+ It was designed in the 1980s in the British Culham Science Centre to study
+ plasma physics in circular and D shaped plasmas, with the purpose to prepare
+ for ITER scenarios.
+ In fact, the relations between its dimensions are very similar to those
+ of ITER.
+ At the turn of the 21st century, the Culham Science Centre started working
+ with a new spherical tokamak, the Mega Ampere Spherical Tokamak (MAST),
+ and so operation of COMPASS was discontinued.
+ However, due to its relevance for the ITER project, it was offered to IPP
+ - Prague which had experience with small tokamaks 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-panek-compass-reinstall"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Images/COMPASS_at_IPP_left.jpg
+	width 100line%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+View of COMPASS and its surroundings.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Images/COMPASS_chamber.jpg
+	width 100line%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Inside the chamber of COMPASS.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+As before, the main objectives of COMPASS are related to ITER, specially:
+\end_layout
+
+\begin_layout Itemize
+study of H-mode physics (there are only two other operational tokamaks in
+ Europe capable of this regime);
+\end_layout
+
+\begin_layout Itemize
+MHD equilibrium and instabilities;
+\end_layout
+
+\begin_layout Itemize
+Plasma-wall interaction;
+\end_layout
+
+\begin_layout Itemize
+Physics of runaways and disruption;
+\end_layout
+
+\begin_layout Itemize
+Developments of advance diagnostic methods;
+\end_layout
+
+\begin_layout Section
+ISTTOK
+\end_layout
+
+\begin_layout Standard
+Tokamak ISTTOK (Instituto Superior Técnico TOKamak) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-isttok-website"
+
+\end_inset
+
+ is installed in Lisbon, in the institute that gives it the name and is
+ explored by IPFN.
+ It is a small tokamak with a circular cross-section, a poloidal graphite
+ limiter and an iron core transformer, that was built from the former TORTUR
+ tokamak, which was de-commissioned by the Association EURATOM/FOM in 1988.
+ The ISTTOK construction started, officially, on January 1st, 1990, date
+ on which the contract of association EURATOM/IST enter into force.
+ The operation of this experiment in an inductive regime started on February
+ 1991.
+ Its main objectives are:
+\end_layout
+
+\begin_layout Itemize
+Teach and train personnel (mainly university students) in physics, engineering
+ and technologies associated with nuclear fusion;
+\end_layout
+
+\begin_layout Itemize
+Development of new diagnostic techniques and to develop and test digital
+ instrumentation dedicated to control and data acquisition.
+\end_layout
+
+\begin_layout Standard
+Since 2012, thanks to fast electronics developed at IPFN and real-time control,
+ ISTTOK has been operating on AC discharges 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-ivo-isttok-ac-discharges,key-ivo-tese-phd"
+
+\end_inset
+
+, where the direction of the plasma current changes quickly enough to allow
+ the pulse to be continued, keeping a somewhat constant plasma density without
+ saturating the iron core.
+ This has allowed discharge duration to go from 25-40 ms up to almost 1
+ s (although the typical discharge is around 200 ms).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Images/ISTTOK_09.jpg
+	width 100line%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+View of ISTTOK and its surroundings
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Motivation
+\end_layout
+
+\begin_layout Standard
+With the installation of the COMPASS tokamak in Prague, it was necessary
+ to install a CODAC system for the experiment.
+ Over the years, new diagnostics and actuators were expected be installed
+ and thus required to be integrated on the CODAC.
+ The operation would be based on the novel ATCA 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-valcarcel-atca-for-compass"
+
+\end_inset
+
+ control and acquisition boards developed on IPFN (Instituto de Plasmas
+ e Fusão Nuclear).
+ These possess advanced technical features, namely state-of-art FPGA for
+ signal processing, multi-Gigabit/s point-to point serial links for super-fast
+ data sharing across all the input channels and a sub nano-second synchronous
+ timing/event distribution network.
+ This system was similar to the one used on the ISTTOK tokamak in Lisbon.
+ The knowledge obtained during the design, installation and maintenace can
+ be extrapolated to other experiments, future and current, thus becoming
+ the basis for the work presented on this thesis.
+\end_layout
+
+\begin_layout Chapter
+Control, data acquisition and retrieval in international experiments
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+chaptermark{Control, data acquisition and retrieval}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+JET
+\end_layout
+
+\begin_layout Standard
+The Joint European Torus (JET) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-jet-website"
+
+\end_inset
+
+ is currently the largest tokamak in operation in the world.
+ It was designed in the mid 1970s and its operation began in 1983.
+ It is installed near Culham, Oxfordshire in the UK and is managed through
+ the European Consortium for the Development of Fusion Energy (EUROfusion).
+ Not only was here that the first controlled release of fusion energy happened,
+ but it also detains the world record in fusion power (16 MW).
+ In 2006 operation was started with an ITER-like magnetic configuration
+ and in 2011 an ITER-like wall was installed, thus becoming the key on the
+ preparation for ITER operation.
+ For the scope of this thesis, JET represents a good example of a large
+ experiment that has been running for several decades, during a time of
+ significant technological advancements.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Images/jet_inside.jpg
+	width 100line%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Inside the chamber of JET, without plasma on the left and with plasma on
+ the right
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+At the begining 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-krom-codas-jet"
+
+\end_inset
+
+, its CODAS was designed around a modular, tree-like structure.
+ It consisted of three levels:
+\end_layout
+
+\begin_layout Itemize
+Level 1: Jet-wide supervisory control
+\end_layout
+
+\begin_layout Itemize
+Level 2: Subsystem supervisory control
+\end_layout
+
+\begin_layout Itemize
+Level 3: Local unit or component
+\end_layout
+
+\begin_layout Standard
+Level 2 and most of level 3 software ran on level 2 computers, with some
+ real-time control on microprocessors in level 3.
+ This structure was also used to identify data in the database.
+ The technology used was cutting edge for the time, with NORD computers
+ and CAMAC front-end electronics.
+ Most software was written in Fortran, with time-critical software written
+ in Assembly and NPL (NORD Programming Language).
+ Around 1990, this technology was showing its age: more powerful hardware
+ and modern software were available, but they were not supported on the
+ NORD architecture.
+ It was thus decided to switch to a UNIX based system (Solaris OS), to use
+ ethernet networking and to replace the CAMAC system with VME and PC front-ends.
+ This was no easy task: there were many CAMAC systems being used and they
+ could not be replaced overnight, so they had to be interfaced with the
+ new computers; tens of thousands of lines of code written in Assembly and
+ NPL had to be ported to C; around half a million lines of Fortran code
+ also had to be translated because of NORD extensions that were not supported
+ by UNIX; some NORD features also had to be temporarly emulated; and all
+ of this while the machine had to remain operational.
+ Only in 1994 and after a major shutdown phase, was the migration to the
+ new CODAS system considered complete.
+ 
+\end_layout
+
+\begin_layout Standard
+This, as expected, would not end here and by 2008 the system had received
+ another overhaul, being by then mostly based on PCI eXtension for Instrumentati
+on (PXI) and LabVIEW, with computers now using GNU/Linux operating systems,
+ specifically Linux RTAI for real-time applications 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-vega-new-develop-jet"
+
+\end_inset
+
+.
+ More modern hardware architectures, like Advanced Telecommunications Computer
+ Architecture (ATCA) here started to being used for new subsystems 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-batista-atca-jet"
+
+\end_inset
+
+.
+ In 2010, a real-time control framework, called MARTe (Multi-threaded Applicatio
+n Real-Time executor), that can take advantage of multicore processors,
+ was developed at JET and now is being used for some of its real-time control,
+ including some critical subsystems like the vertical stabilisation control.
+\end_layout
+
+\begin_layout Standard
+It is also interesting to look at how the system grew during its operational
+ history.
+ In the early design it was estimated that the CODAS would require about
+ 15 computers, together with a large mainframe for data storage and analysis.
+ It was also expected that this would be enough for the entire life of JET.
+ But as soon as JET became operational this number had already grown to
+ 34 NORD minicomputers (20 online), in 1999 there were 122 SPARC computers
+ being used (92 online) and the number continued to grow to the point were
+ it is not easy to make an estimation anymore.
+ As for the data generated, it was first expected that each shot would produce
+ almost 1 MB of data, value that was surpassed as soon as JET started regular
+ operation.
+ Over the years the amout of data collected has been steadily increasing,
+ roughly doubling every two years, reaching 10 GB by 2008.
+ In order to cope with this growth the first measure taken (besides improvements
+ made on the network) was to classify data has either 'urgent' or 'non-urgent',
+ with the first being collected in the first few minutes after a pulse and
+ the other later in the day, during quiet periods.
+ More solutions (now with ITER also in mind) like data compression and selective
+ acquisition rates are also being studied and may be implemented in a near
+ future 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-vega-new-develop-jet"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Images/number_computers_at_jet.eps
+	width 100line%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+The number of control computers within JET CODAS until 1999.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-krom-codas-jet"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Images/jet_data_evolution.eps
+	width 100line%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+The data volume growth on JET.
+ It closely follows a Moore-like law.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Wendelstein 7-X
+\end_layout
+
+\begin_layout Standard
+The Wendelstein 7-X (W7-X) reactor is an experimental stellarator built
+ in Greifswald, Germany, by the Max Planck Institute of Plasma Physics (IPP),
+ and completed in October 2015 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-w7x-website"
+
+\end_inset
+
+.
+ It is currently the largest stellarator in the world and it was designed
+ to operate with up to 30 minutes of continuous plasma.
+ Its first plasma was created in December 2015 and regular operation has
+ yet to start.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Images/Wendelstein7-X_Torushall-2011.jpg
+	width 100line%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+The torus hall of Wendelstein 7-X, during cosntruction.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The CODAC of W7-X is based around a modular system called Control and Data
+ Acquisition Station (CoDaStation) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-bluhm-w7x-codas"
+
+\end_inset
+
+.
+ It was designed with the specific needs of W7-X in mind and prototypes
+ were tested on other installations (like WEGA stellerator) before deployment
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-laqua-wega-w7x-tests"
+
+\end_inset
+
+.
+ The core of the CoDaStation software is a generic framework that solely
+ provides the necessary infrastructure to acquire and process signals.
+ In order to achieve high modularity, there are many components on the system,
+ each with well defined functions nad interations.
+ On the data acquisition side there is:
+\end_layout
+
+\begin_layout Itemize
+Buffers: signal packages containing data with the same 
+\emph on
+time group 
+\emph default
+(similar time-stamp)
+\end_layout
+
+\begin_layout Itemize
+Signal providers and consumers: generate a signal and recieve one or mores
+ signals, respectively
+\end_layout
+
+\begin_layout Itemize
+Routers: transfer data from 
+\emph on
+signal providers
+\emph default
+ and 
+\emph on
+signal consumers
+\end_layout
+
+\begin_layout Itemize
+Routing jobs: define if routers act synchronously or asynchronously, according
+ to urgency or special requirements
+\end_layout
+
+\begin_layout Standard
+On the control side there is:
+\end_layout
+
+\begin_layout Itemize
+Properties: the state of a CoDaStation component
+\end_layout
+
+\begin_layout Itemize
+Controllables: retrieve 
+\emph on
+Properties
+\emph default
+ from the CoDaStation and translate them into component-specific actions
+\end_layout
+
+\begin_layout Itemize
+Station states: define the overall state of the CoDaStation
+\end_layout
+
+\begin_layout Itemize
+Controller: interface for external control systems to issue control commands
+\end_layout
+
+\begin_layout Standard
+These come together on packages called AddOns, which are used to integrate
+ subsystems thus providing CoDaStation with new functionalities.
+ These can have 
+\emph on
+controllables
+\emph default
+, 
+\emph on
+signal providers
+\emph default
+ and 
+\emph on
+signal consumers
+\emph default
+, interacting with the main system through a fixed software interface.
+ Thanks to this, new features can be easily tested outside W7-X and also
+ CoDaStation components can be replaced by mockups.
+ There are also 
+\emph on
+Supervisors
+\emph default
+:
+\emph on
+ 
+\emph default
+software that operators use to monitor 
+\emph on
+Station
+\emph default
+ and
+\emph on
+ AddOn
+\emph default
+ states and act if necessary.
+ This can also be done remotely, thanks to JXI based supervisors.
+\end_layout
+
+\begin_layout Section
+NIF
+\end_layout
+
+\begin_layout Standard
+The National Ignition Facility (NIF) is a large laser-based inertial confinement
+ fusion research device, located at the Lawrence Livermore National Laboratory
+ in Livermore, California, in the United States of America 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-nif-website"
+
+\end_inset
+
+.
+ Construction began in 1997, being ready for operation in 2009 and by 2010
+ the National Ignition Campaign started with the goal to produce more fusion
+ energy than deposited on the target.
+ However the campaign ended in 2012 without reaching its main objective
+ and currently NIF is mostly devoted to materials studies.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Images/nif-1209-18050.jpg
+	width 100line%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Inside the reaction chamber of NIF, while preparing for a shot.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+At the heart of the control and data acquisition system of NIF is the NIF
+ Data Repository (NDR) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-carey-nif-repository"
+
+\end_inset
+
+.
+ The NDR integrates many autonomous database systems thus being called a
+ federated database.
+ It allows the collection of all information relevant to the experiment,
+ specifically campaign plans, machine configuration, calibration data, raw
+ experimental results and processed results.
+ There are three main events that trigger data collection and automated
+ data analysis: laser alignment, shot time capture, and post shot optics
+ damage inspection.
+ Recent data is stored on-line, least recently used data is migrated to
+ near-line storage and older data storage is subjected to different policies
+ depending on the type of data.
+ In 2009 NIF was generating approximately 66 TB of data per year, most of
+ them 2-D images.
+ 
+\end_layout
+
+\begin_layout Standard
+NDR uses industrial and scientific standards for its operation, such as:
+\end_layout
+
+\begin_layout Itemize
+Web Services Business Process Execution Language (WS-BPEL) for preparing
+ shots and organizing data collection, transfer and analysis;
+\end_layout
+
+\begin_layout Itemize
+HDF5 files for storing calibration, background and diagnostic data;
+\end_layout
+
+\begin_layout Itemize
+Uniform Resource Names (URN) to identify data and accessing it through Web
+ services.
+\end_layout
+
+\begin_layout Standard
+One of the goals of NDR is foster collaboration between universities and
+ research institutes.
+ To achieve this, all data and other content can be shared on the Web, with
+ researchers being able to decide what they want to share with everyone,
+ a restrited group of colleagues or to keep private.
+\end_layout
+
+\begin_layout Section
+ALICE
+\end_layout
+
+\begin_layout Standard
+One of several CERN LHC (Large Hadron Collider) experiments, ALICE (A Large
+ Ion Collider Experiment) is a general-purpose, heavy-ion detector which
+ focuses on Quantum chromodynamics (QCD), the strong-interaction sector
+ of the Standard Model.
+ It is optimized to study heavy ion collisions (Pb-Pb), with temperature
+ and energy densities high enough to produce quark–gluon plasma.
+\end_layout
+
+\begin_layout Chapter
+CODAC Tools on ISTTOK and Compass
+\end_layout
+
+\begin_layout Standard
+The CODAC in ISTTOK and Compass share several common tools and are thus
+ somewhat similar.
+ These tools were designed to be flexible, modular, independent from operating
+ system and computer architecture.
+ This is achieved by using non-proprietary open-source software, industry
+ standards and cross-platform programming languages.
+ These systems are open-source and their code is stored in a subversion
+ repository.
+\end_layout
+
+\begin_layout Section
+FireSignal
+\end_layout
+
+\begin_layout Standard
+FireSignal 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-neto-firesignal"
+
+\end_inset
+
+ is the part of the CODAC that allows the operator to configure and monitor
+ the experiments, also retrieving data from diagnostics and storing it in
+ the database.
+\end_layout
+
+\begin_layout Standard
+As a fully modular system FireSignal avoids dependencies of particular technolog
+ies.
+ It is composed of five different modules, which provide all the functionality
+ to the system:
+\end_layout
+
+\begin_layout Itemize
+Central Server—works as bridge between all the other components.
+ It is responsible for managing all the connections, commands and data broadcast.
+ 
+\end_layout
+
+\begin_layout Itemize
+Database connector—controls the installed database, storing and fetching
+ data when ordered by the Central Server, providing an abstract layer, independe
+nt of the database solution.
+ 
+\end_layout
+
+\begin_layout Itemize
+Security Manager—the Central Server queries this component to authenticate
+ users and nodes and to authorize all the operations.
+ The security schema used (LDAP, PAM, etc.) is abstracted by the security
+ manager.
+ 
+\end_layout
+
+\begin_layout Itemize
+Hardware Clients—these are responsible for driving the devices and for data
+ readout.
+ Template nodes, with the communication to the Central Server already implemente
+d, are provided in different languages and can be extended to integrate
+ any hardware device.
+ 
+\end_layout
+
+\begin_layout Itemize
+User Clients—these are the graphical user-interfaces, which allow the interactio
+n with the system.
+ It is the only optional component as the system can still operate without
+ direct human intervention, e.g.
+ when FireSignal works as a system which receives orders from other data
+ acquisition system.
+\end_layout
+
+\begin_layout Standard
+All the components are connected through CORBA 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-corba"
+
+\end_inset
+
+ allowing them to run in different operating systems and to be written in
+ different computer languages.
+ Currently FireSignal is using Java and C++ as main languages.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Images/fsignal1.png
+	width 100line%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Schematic of how the different parts of FireSignal are connected.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-neto-firesignal"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Database connector
+\end_layout
+
+\begin_layout Standard
+All data arrives tagged with two absolute time-stamps: acquisition start
+ time, end time.
+ These can later be used to generate time arrays and correlate data.
+ The data also comes tagged with an event.
+ A large number of what happens during the discharge can be considered an
+ event.
+ Examples of events include the discharge start trigger, external triggers
+ and disruptions.
+ Events are defined by a unique name and number and by an absolute time-stamp.
+ In the case of ISTTOK the event shot is defined by the string ‘0x0000’,
+ where the unique number is the shot number and the time-stamp the time
+ in which there is the formation of plasma.
+ The accuracy of these times stamps isn't guaranted by FireSignal so an
+ external timing system is necessary.
+\end_layout
+
+\begin_layout Standard
+The installer for FireSignal originaly came with three database connector
+ implementations: MySQL, PostgreSQL and PostgreSQL with external files for
+ the binary data.
+ A fourth, supporting Compass Database (CDB), was developed later 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-urban-cdb"
+
+\end_inset
+
+.
+ This one was also used as a base for a version using HDF5 (as opposed to
+ plain binary files) files to store data, which isn't currently being used.
+ 
+\end_layout
+
+\begin_layout Subsection
+Hardware Clients
+\end_layout
+
+\begin_layout Standard
+Hardware clients, also called Nodes, provide the interface between the installed
+ devices and the Central Server.
+ Their main responsibilities are the configuration of hardware, tagging
+ data and events with the correct time-stamps and sending them to the server.
+ Nodes are organized as follows: 
+\end_layout
+
+\begin_layout Itemize
+Nodes contain Hardware devices.
+\end_layout
+
+\begin_layout Itemize
+Hardware devices contain parameters.
+\end_layout
+
+\begin_layout Itemize
+Parameters contain configuration fields.
+\end_layout
+
+\begin_layout Standard
+This organization is not very different from a typical acquisition system,
+ with crates (Nodes) containing boards (Hardware) with several channels
+ (parameters).
+ By default, each parameter in the same hardware has a different value for
+ the same configuration fields but it's possible to have them share the
+ same value.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Images/fsignal2.png
+	width 100line%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Detail on how Nodes connect to other modules.
+ It also shows the different XML files that define their characteristics.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Nodes are described in two types of XML files, one for the Node iself and
+ another for each Hardware.
+ The Node file is very simple, only containing the name and description
+ for the node itself.
+ The Hardware file contains the name and description for the hardware itself
+ and also the list of parameters and their fields.
+ Parameters and fields can be defined to be editable or not, it is possible
+ to force fields be not be empty, have their value shared across the same
+ Hardware and it also defines their type.
+ Parameters have a mime-type that is used to determine how to store and
+ display data (there is a plugin system that allows user defined mime-types).
+ Likewise, there are several standard defined field types and it is possible
+ to have user-defined types, thanks to the plugin system.
+\end_layout
+
+\begin_layout Subsection
+CORBA
+\end_layout
+
+\begin_layout Standard
+As with all the FireSignal components, the communication between the Nodes
+ and the Central Server is perform through CORBA.
+ Each Node implements the FireSignal server–node communication standard.
+ The number of functions is quite significant and ranges from hardware configura
+tion details to event broadcasting and data acquisition.
+ FireSignal is bundled with server–node communication standard implementations
+ in two different languages: Java and Python (C++ is now being developed).
+ This allows developers to focus only in the interface between Nodes and
+ hardware without having to learn or concern about the communication protocol
+ with the Central Server.
+\end_layout
+
+\begin_layout Subsection
+User Client
+\end_layout
+
+\begin_layout Standard
+The user client is a standalone application, developed in Java and deployed
+ using Java Web Start (JWS) technology, serving as a front-end of the FireSignal
+ system.
+ Distributing through JWS downloads all necessary libraries and if any of
+ these are updated it will also update them automatically.
+ The parameter configuration interface is automatically generated, using
+ the XML Hardware configuration file and the default configuration options
+ can extended by loading plugins.
+ Besides configuration, it also allows the supervision of the states of
+ each Node and Hardware, it allows remote participation, it includes a data
+ viewer and it also has the possibility of performing data analysis using
+ an external tool, but this feature is not currently implemented.
+ The data viewer only supports one dimensional data, but it can be extended
+ with plugins to show more complex data, accordind to the mime-type.
+\end_layout
+
+\begin_layout Standard
+Users can connect to the system anywere in the world, given that they are
+ registered.
+ There is a basic chat room (powered by Jabber) and users are also able
+ to send data references that they fin relevant to the discussion to each
+ other.
+ FireSignal recognizes three roles:
+\end_layout
+
+\begin_layout Itemize
+Regular user: can see configurations, and data.
+ Can use the chat and share data;
+\end_layout
+
+\begin_layout Itemize
+Administrator: manages users;
+\end_layout
+
+\begin_layout Itemize
+Operator: can configure the experiment and operate the machine.
+\end_layout
+
+\begin_layout Standard
+It also supports groups with special permissions, for the case were a group
+ of researchers is responsible for the configuration of a susbsystem but
+ are not authorized to operate the machine.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Images/CapturaEcra-FireSignal_en.png
+	width 100line%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+The user interface of FireSignal.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+SDAS
+\end_layout
+
+\begin_layout Standard
+The Shared Data Access System (SDAS) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-neto-sdas"
+
+\end_inset
+
+ is the part of the CODAC of ISTTOK that is reponsible to find and retrieve
+ data from the database.
+ SDAS is based on Remote Procedure Calls (RPC) specifically XML-RPC, where
+ the calls are made by HTTP using the XML format.
+ SDAS was designed to be used by many different associations, with the objective
+ of users only using a single set of libraries to access any database of
+ the adopting associations.
+ To achieve this it is required for each association to develop a software
+ component which would translate the SDAS calls into something meaningful
+ to their data storage system.
+ There are connectors already available for PostgreSQL and MySQL relational
+ databases, with the option of storing data as a binary blob inside the
+ database itself or as a binary file (raw or HDF5).
+\end_layout
+
+\begin_layout Standard
+SDAS design shares some similarities with FireSignal.
+ Data is also indexed by time (start time and end time) and events but a
+ signal unique identifier doesn't necessarily need to follow the node-hardware-s
+tructure used by FireSignal.
+ Data is also treated by default as a one-dimensional array of values but
+ it is possible to extend SDAS to support more complex data, like images
+ for example.In the case of varying acquisition rates, it is possible to
+ have the data in slices, each with its own start and end times, and the
+ system will recognize them as being part of the same data set.
+ Data can have linear calibration coeficients applied to them, but on the
+ other hand it is not possible to retrieve the raw data as it is stored:
+ even without coeficients it always returns in double-precision floating-point
+ format.
+\end_layout
+
+\begin_layout Standard
+On the user side, there are libraries in Java, Python and C++ that can be
+ used for programing or be integrated in data analysis software like Matlab,
+ IDL and Octave.
+ There is a simple data viewer in Java that has basic functionalities implemente
+d, allowing users to search for signals and events and view data in either
+ a plot or a table.
+ There is also a Web tool that allows users to search on any web browser
+ for all the data generated by a specific event and to download signals
+ as binary files.
+ SDAS as a basic authentication protocol that allows authorized users to
+ save processed data on the main database.
+ This feature is being used at ISTTOK to store the automated calculations
+ of plasma density and plasma current after each shot.
+\end_layout
+
+\begin_layout Section
+MARTe
+\end_layout
+
+\begin_layout Standard
+Developed at JET, MARTe (Multithreaded Application Real-Time executor) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-neto-marte"
+
+\end_inset
+
+is a modular framework designed for real-time projects, specially real-time
+ control.
+ It is built on a C++ real-time library named BaseLib2, that allows the
+ same code to run in different operating systems.
+ The main features of BaseLib2 are:
+\end_layout
+
+\begin_layout Itemize
+configuration file, used to automatically create and configure objects;
+\end_layout
+
+\begin_layout Itemize
+garbage collector for memory managment;
+\end_layout
+
+\begin_layout Itemize
+HTTP interface vailable for all objects;
+\end_layout
+
+\begin_layout Itemize
+built-in mathematical and algebraic tools;
+\end_layout
+
+\begin_layout Itemize
+configurable logger, including a tool in Java to receive and filter logger
+ messages.
+\end_layout
+
+\begin_layout Standard
+Being a modular design, MARTe itself is made of different components.
+ The basic ones are:
+\end_layout
+
+\begin_layout Itemize
+Generic Application Module (GAM): the main element of MARTe and building
+ blocks.
+ They have three interfaces: one for configuration, one for input and one
+ for output.
+ GAMs that interface with hardware are called IOGAMs.
+ It is also possible to have GAMs that simulate inputs for other GAMs, for
+ debug purposes.
+\end_layout
+
+\begin_layout Itemize
+Dynamic Data Buffer (DDB): optimixed memory bus that GAMs use to transfer
+ data betwen each other.
+ It also ensures the coherance of signals betwen GAMs.
+\end_layout
+
+\begin_layout Itemize
+Real-Time Thread: container of GAMs and responsible for their sequential
+ execution.
+ MARTe must contain at least one real-time thread, but it can handle any
+ number of them, running either concurrently or in parallel.
+ 
+\end_layout
+
+\begin_layout Standard
+MARTe is currently being used at JET for the vertical stability control
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-rimini-vertical-stab-jet"
+
+\end_inset
+
+, at ISTTOK to control the plasma position and the primary current (for
+ plasma current inversion for AC discharges) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-ivo-isttok-ac-discharges"
+
+\end_inset
+
+, and in COMPASS to control the plasma position and shaping 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-janky-compass-realtime"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+CDB
+\end_layout
+
+\begin_layout Standard
+The Compass DataBase (CDB) is the part of the CODAC of Compass that is reponsibl
+e to find and retrieve data from the main database.
+ Originaly Compass used an implementation of SDAS but do the perceived shortcomi
+ngs a new solution was designed.
+ The main features of CDB are:
+\end_layout
+
+\begin_layout Itemize
+Nothing stored can be overwritten; instead, revisions are possible as corrective
+ actions;
+\end_layout
+
+\begin_layout Itemize
+Shots are separate from other events;
+\end_layout
+
+\begin_layout Itemize
+A relational database is used to store metadata of the numerical data and
+ also physical quantities names, units and information about the axis;
+\end_layout
+
+\begin_layout Itemize
+Time can be stored as an array or just the start and end of the acquisition;
+\end_layout
+
+\begin_layout Itemize
+Data files (HDF5) can be written directly on the main data storage without
+ having to pass through a central server.
+\end_layout
+
+\begin_layout Standard
+The core application is implemented in Python (pyCDB), with Cython being
+ used to wrap the Python code in a C API.
+ Matlab, IDL etc.
+ clients can then be built using the C API.
+ There is also a Java binding using Jython.
+\end_layout
+
+\begin_layout Subsection
+Integrating CDB and FireSignal
+\end_layout
+
+\begin_layout Standard
+For CDB and FireSignal integration, two things were required:
+\end_layout
+
+\begin_layout Enumerate
+Design CDB in such a way that FireSignal identifiers for channels and events
+ would still be recognized and usable;
+\end_layout
+
+\begin_layout Enumerate
+Develop a new FireSignal database controller module, for legacy Nodes.
+\end_layout
+
+\begin_layout Standard
+The second point would still cause the issue of bottlenecking that CDB was
+ trying to solve, but it was considered necessary not only because it would
+ allow Compass to operate normally until all nodes had been converted to
+ the new data storage method but it would also allow Nodes developed at
+ IPFN to be tested on Compass before any major changes were applied.
+ The first point was achieved by having functions on the API that convert
+ between FireSignal IDs and CDB IDs and vice-versa.
+ The biggest challenge regarding the second point was the fact that the
+ CDB tools that existed to write the meta-data on the database were only
+ available in Python, so a bridge between Java and Python had to be used.
+ At first Java Embedded Python (JEP) was used as it was more straightforward
+ than Jython, however Jython was easier to install and thus it was used
+ for the Java API bridge.
+ Since it didn't make sense to use two different tools to perform basicaly
+ the same task, eventually Jython replaced JEP.
+ The database controller acts like a regular FireSignal one but with some
+ extra steps:
+\end_layout
+
+\begin_layout Enumerate
+Because the two relational databases are being used in parallel, the controller
+ stores meta-data on the FireSignal Database like usual;
+\end_layout
+
+\begin_layout Enumerate
+Following CDB procedure, a request is made for a new signal ID;
+\end_layout
+
+\begin_layout Enumerate
+The data and the FireSignal XML shot configuration file are stored in a
+ single HDF5 file;
+\end_layout
+
+\begin_layout Enumerate
+Meta-data is stored on CDB relational database.
+\end_layout
+
+\begin_layout Chapter
+Subsystem Integration
+\end_layout
+
+\begin_layout Section
+MARTe - FireSignal Bridge
+\end_layout
+
+\begin_layout Standard
+When MARTe was introduced for real-time control in ISTTOK and COMPASS tokamaks,
+ it was necessary to integrate it with FireSignal 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-valcarcel-realtime-compass"
+
+\end_inset
+
+.
+ This integration was meant to allow MARTe to receive triggers, send data
+ to the main database and be configurable on the user interface of FireSignal.
+ It was decided that the node would use the standard HTTP server provided
+ with MARTe, since this would allow the node to fulfill the objectives without
+ having to interfere with MARTe core.
+ It was decided to program in Java in order to take advantage of its integrated
+ HTTP and HTML tools.
+ 
+\end_layout
+
+\begin_layout Subsection
+State Machine
+\end_layout
+
+\begin_layout Standard
+MARTe has its own internal state machine.
+ The states can be cycled manually by the operator either on the console
+ interface or the HTML interface on a web browser.
+ This node completely automates this procedure: once the main event arrives,
+ it will cycle automatically through the states, following closely equivalent
+ states in FireSignal.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="2">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+MARTe
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+FireSignal
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+idle
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+stopped
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+waiting_for_pre
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+configured
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+pulsing
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+running
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+post_pulse
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+running
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+MARTe states and matching FireSignal states
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="2">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+MARTe
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+FireSignal
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+pulse_setup_completed
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+configure
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+pre
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+run
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+ejp
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+N/A
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+collection_completed
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+stopping
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+MARTe commands and matching FireSignal intermediate states
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Some FireSignal states are mapped to MARTe commands.
+ Although these are not really system states, they tell the operator that
+ the node has sent the related command to MARTe, but the current state hasn't
+ changed yet.
+ There is a thread that constately monitors the MARTe state page and changes
+ the Node status if needed.
+ If necessary, the states can be changed by the operator on the MARTe interface
+ and the Node will acknowledge the change.
+ The system, however, needs to know when to issue the 
+\emph on
+ejp
+\emph default
+ command to finish the acquisition.
+ For this, an extra HTML page is required with the information if there
+ is plasma or not.
+\end_layout
+
+\begin_layout Subsection
+Configuration File Parser
+\end_layout
+
+\begin_layout Standard
+A FireSignal Node requires some information on XML files before being built.
+ Because not all the necessary information is available on the HTTP server
+ at start, it was necessary to get this from the configuration file.
+ BaseLib includes a C++ parser, but since it was decided to program the
+ node in Java, making a native parser from scratch was considered a better
+ option than using JNI.
+ 
+\end_layout
+
+\begin_layout Standard
+The parser is event-based sequencial access, meaning that while it parses
+ the file it will call methods (events) from a handler object when it finds
+ keywords.
+ Parsing events are sent in the order of the information on the document
+ itself.
+ Besides comments, it defines the following elements of a MARTe configuration
+ file:
+\end_layout
+
+\begin_layout Itemize
+single attributes: elements in the form 
+\emph on
+att = value
+\emph default
+.
+ They are defined with a single value, that can be a string or a numeric
+ value.
+\end_layout
+
+\begin_layout Itemize
+array attributes: elements in the form 
+\emph on
+att = {value1 value2 ...}
+\emph default
+.
+ Single values enclosed between 
+\emph on
+{...}
+\emph default
+.
+\end_layout
+
+\begin_layout Itemize
+blocks: elements in the form 
+\emph on
+block = { att = ...
+ }
+\emph default
+, with attributes and other blocks inside.
+\end_layout
+
+\begin_layout Subsubsection
+HTTP Communication
+\end_layout
+
+\begin_layout Standard
+For the communication between MARTe and FireSignal two solutions were available:
+ either developing a GAM implementing the functionalities of a FireSignal
+ Node or developing a Node with HTTP communications implemented.
+ Since the HTTP interface allows access to all configurations and data,
+ the only advantage to have a GAM would be to have it all integrated on
+ MARTe.
+ The HTTP approach offers several other advantages: i) it is possible to
+ develop the MARTe code without FireSignal, ii) the Node is not required
+ to be running on the same machine as the real-time code, iii) any existing
+ MARTe configuration file can be used.
+\end_layout
+
+\begin_layout Standard
+\noindent
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Images/marte-firesignal.png
+	width 100line%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Schematic of the MARTe FireSignal Node connects them.
+ It uses HTTP between the Node and MARTe, and uses CORBA for the other connectio
+ns.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Fast Acquisition Node
+\end_layout
+
+\begin_layout Standard
+This C++ node was developed for PCIe acquisition boards developed at IPFN
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-batista-pcie-atca-boards"
+
+\end_inset
+
+.
+ These boards have 32 18-bit ADC channels that can acquire up to 2 Mega
+ samples per second.
+ The node accesses directly the board through driver commands.
+ 
+\end_layout
+
+\begin_layout Standard
+With the node interface it is possible to configure:
+\end_layout
+
+\begin_layout Itemize
+Clock source: choice between shared (common to all boards on the same crate)
+ or local
+\end_layout
+
+\begin_layout Itemize
+Trigger source: choice between shared or local
+\end_layout
+
+\begin_layout Itemize
+Trigger type: choice between software (acquisition begins immediately) or
+ hardware (waits for external trigger)
+\end_layout
+
+\begin_layout Itemize
+Acquisition time:
+\end_layout
+
+\begin_layout Itemize
+Trigger delay: configurable delay, in ms, from the trigger arrival and the
+ acquisition start
+\end_layout
+
+\begin_layout Itemize
+Delay time: delay to be added to the data timestamps, to compensate for
+ possible trigger differences with other boards
+\end_layout
+
+\begin_layout Standard
+Besides these fields, there are three other that are not configurable, being
+ used for information and reference:
+\end_layout
+
+\begin_layout Itemize
+Frequency: the acquisition rate is fixed at 2 Msamples/s.
+\end_layout
+
+\begin_layout Itemize
+On board memory size
+\end_layout
+
+\begin_layout Itemize
+DMA byte size
+\end_layout
+
+\begin_layout Standard
+This node defines a main event that usually refers to the plasma start.
+ When a new event arrives the configurations are sent to the boards, which
+ then wait for trigger.
+ In case software trigger is selected, a call is made to the driver, starting
+ the acquisition.
+ 
+\end_layout
+
+\begin_layout Standard
+Acquired data is tranfered to the node as a signed 32 bit integer array,
+ with the extra bits padded with 0.
+\end_layout
+
+\begin_layout Subsection
+16-bit Node
+\end_layout
+
+\begin_layout Standard
+From the data transmission and storage point of view, using 32 bits to store
+ 18 bit values results in 43.75% of space being wasted.
+ To improve this situation, two solutions were considered: compress the
+ data or only store the 16 most significant bits.
+ Some tests were performed to evaluate these solutions.
+ 
+\end_layout
+
+\begin_layout Standard
+Using some acquisitions on ISTTOK when the shot failed, we analysed the
+ noise level coming from the boards.
+ Assuming it was gaussian noise, we took note of the standard deviation
+ for the entire signal.
+ Then we calculated the average for the available channels and took note
+ of the maximum and minimum values, calculating the base 2 logarithm in
+ order to obtain an aproximation on the number of equivalent bits (on a
+ 32 bit integer).
+ We can see some examples on the next table:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="10" columns="5">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="middle">
+<column alignment="center" valignment="middle" width="25text%">
+<column alignment="center" valignment="middle" width="22text%">
+<column alignment="center" valignment="middle" width="22text%">
+<column alignment="center" valignment="middle" width="15text%">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Shot
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Average Standard Deviation (log 2)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Min Standard Deviation (log 2)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Max Standard Deviation (log 2)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Number of channels
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+31652
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+19.63
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+18.99
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+20.19
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+21
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+31668
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+19.63
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+19.04
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+20.18
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+20
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+31916
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+19.83
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+19.14
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+20.21
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+27
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+31942
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+20.12
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+19.23
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+21.82
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+15
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+31972
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+20.05
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+19.49
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+21.48
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+25
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+32060
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+19.68
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+18.98
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+20.16
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+20
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+32116
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+19.86
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+19.30
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+20.33
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+24
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+32118
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+19.85
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+19.34
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+20.36
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+24
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+32120
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+19.88
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+19.44
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+20.33
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+24
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Some measurements done to estimate the base noise level at ISTTOK.
+ Not all channels were available for every shot.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The varying number of channels come from the fact that, while some channels
+ were malfunctioning, others were picking up residual signals that were
+ not relevant to our study.
+ We can conclude that around 66% of the baseline noise is contained by 20
+ bits and is thus safe to remove the 16 less significant bits without any
+ noticible loss in signal.
+\end_layout
+
+\begin_layout Standard
+The conversion is done in a simple and straightforward way: a 16 bit pointer
+ is used to run over the data coming from the boards; the less significant
+ part is ignored,while the other is stored in a 16 bit integer buffer that
+ is sent to the central server of FireSignal.
+ This way,without changing the firmware or the drivers, one can choose if
+ he wishes to have the full 32 bits or 16 is enough.
+\end_layout
+
+\begin_layout Chapter
+Future CODAC Design
+\end_layout
+
+\begin_layout Standard
+As we have seen throughout this thesis, CODACs for large, long duration
+ experiments face similar challenges.
+ Many of these were experienced during the work at ISTTOK and COMPASS tokamaks.
+ This chapter discusses how these challenges should be tackled on future
+ designs.
+\end_layout
+
+\begin_layout Section
+Guiding Principles 
+\end_layout
+
+\begin_layout Standard
+During the work leading to this thesis it became clear that good CODAC design
+ for a large experiment must follow three principles that are somewhat related:
+\end_layout
+
+\begin_layout Itemize
+Scalability
+\end_layout
+
+\begin_layout Itemize
+Adaptability
+\end_layout
+
+\begin_layout Itemize
+Autonomy
+\end_layout
+
+\begin_layout Subsection
+Scalability
+\end_layout
+
+\begin_layout Standard
+As we have seen from the case studies and from experience with ISTTOK and
+ COMPASS, long duration experiences have a tendency to grow.
+ New or improved diagnostics are a necessity to improve the scientific output
+ and keep the laboratory relevant.
+ This usually implies more acquisition channels and faster rates.
+ Advancements on electronics will also push the desire for faster rates
+ and more bits per sample.
+ New techniques (like AC discharges on ISTTOK) can also increase the amount
+ of data generated for each session.
+ Because its desirable that core elements of a CODAC don't change radicaly
+ during the experiment lifetime it needs to be ready for this growth.
+ Radical changes can costly both in time and money, not only to upgrade
+ the system but also to retrain the staff.
+\end_layout
+
+\begin_layout Subsection
+Adaptability
+\end_layout
+
+\begin_layout Standard
+As new technology becomes available it tends to be less and less compatible
+ with old technology.
+ As such a CODAC must not be too dependent on a given technology, but it
+ should be adaptable to changes that are certain to come, even if they are
+ not obvious.
+ On the other hand, it should be prepared to have different technologies
+ working side by side.
+ Using fusion resarch as an example, there is a tendency to use cutting-edge
+ technology, as fusion energy itself is cutting-edge, however stable and
+ robust technology is also desirable to protect the investment and the machine
+ itself.
+ That's why space programs still use last century technology, as they can't
+ afford any level of failure.
+\end_layout
+
+\begin_layout Subsection
+Autonomy
+\end_layout
+
+\begin_layout Standard
+If a CODAC should not be too dependent on a single technology, it should
+ also not be dependent of a single software or hardware company.
+ Turnkey solutions are apealing, specially when they offer a complete environmen
+t, but can be costly on the long run, as these solution may not offer the
+ flexibility required by a large experiment.
+ Being able to modify the system without legal restrictions is the easiest
+ way to ensure scalability and adaptability.
+ Of course this is not always possible, but a certain degree of autonomy
+ must be ensured.
+\end_layout
+
+\begin_layout Section
+Proposals
+\end_layout
+
+\begin_layout Subsection
+General Design
+\end_layout
+
+\begin_layout Standard
+One of the key features that a CODAC should have is undoubtably modularity.
+ This concept is not new, as it was already present on the early designs
+ of JET CODAS, but it is indeed essential if one wants to achieve scalability
+ and adaptability.
+ Idealy, a CODAC should be composed of several different modules, each with
+ its own well-defined function and without overlaps.
+ The connection between modules should be done in a generic and transparent
+ way; each module should not be concerned about the inner workings of other
+ modules.
+ This will also allow modules to be tested outside the main system and be
+ integrated without major changes.
+\end_layout
+
+\begin_layout Standard
+Typically a hierarchical tree-like topology is used, where each component
+ only communicates with the components directly above and below on the hierarchy.
+ Such structure is also found in object oriented programing as it is an
+ intuitive way to implement a transparent module-based structure.
+ However this structue isn't flexible enough and can lead to bottlenecks
+ and excessive complexity.
+ Take for example what happened at COMPASS, where data transfer to the database
+ was hitting a bottleneck at the Central Server of FireSignal, so a bypass
+ between Nodes and Database Manager was implemented.
+ Another example: there has also been some internal discussion on the ISTTOK
+ team regarding a new trigger distribuition hardware and how it should handle
+ events, which has lead to considering a less centralised event distribution.
+ In conclusion, the structure the structure should allow flexibility, with
+ each module being capable of direct communication with more than those
+ directly above and below, in what is called a partially connected mesh
+ topology.
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Images/tree_topology.eps
+	width 40col%
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/partial_mesh.eps
+	width 50col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Diagrams of example network topologies.
+ On the left, a tree (hierarchical) topology, on the right a Partially connected
+ mesh topology.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Data collection and access
+\end_layout
+
+\begin_layout Standard
+As it was mentioned, experimental data volume increase is a given on these
+ types of experiments so it is important for a CODAC to be prepared for
+ it.
+ This growth has two major implications: i) network bandwidth for data transfer
+ and ii) data storage space.
+ Bandwidth is specially important when one considers that, in experiments
+ like ITER, some of the data must be streamed in real-time.
+ Such data, particularly when concerning critical systems such as machine
+ security, must have a dedicated network, physically separated from the
+ main internal network.
+\end_layout
+
+\begin_layout Standard
+To avoid data transfer bottlenecks, a solution similar to the one adopted
+ at COMPASS, where data is written directly in a database cluster, is one
+ of the best approaches, but it can be made more transparent.
+ The best way to achieve this is to implement a cluster database using different
+ disks on different machines (which could even be the same crate where the
+ acquisition boards are installed) which the Database Connector would treat
+ as a single machine.
+ Systems like this have been implemented in data warehouses where it was
+ proved its large scalling potential, the absence of bottlenecks but also
+ that queries involving joins over large data sets from different machines
+ may take longer than expected.
+ This issue can be handled by implementing a system similar to JET, with
+ a second centralised database where priority data can be stored imediatelly
+ and that can also serve as a backup for the distributed database.
+\end_layout
+
+\begin_layout Standard
+Data should be stored in a standard format, so that researchers may be able
+ to open it and extract the information regardless of their favourite data
+ analisys tool.
+ Naturally, the most universal format should be raw binary but it has some
+ drawbacks, namely the fact that code developed in one archicture is not
+ guaranted to be 100% portable unless the developer takes measurers that
+ only make the code more complicated and harder to read, specially for physicist
+s who may want to use the code but are not familiar with this situation.
+ As there are ISO standards that are widely used and are transparent to
+ end-users, these provide a better alternative to raw storage.
+\end_layout
+
+\begin_layout Standard
+Another measure that can be used to address both large data transfers and
+ storage is compression.
+ There are many algorithms available, both open-source and proprietary,
+ lossless and lossy, some even taylored for fusion data.
+ Lossy algorithms are normaly rejected, as researchers like to have access
+ to as much data as possible, but can be usefull for the streaming of non-critic
+al data (p.e., video from inside the machine).
+ A downside to compression is that it can sometimes take so much time that
+ any transfer time gain is rendered moot, so this must be taken into considerati
+on when deciding to compress the data and which algorithm to use.
+ A situation where the compression-decompression overhead is not as critical
+ is long term storage since, tipically, the older the data is, the less
+ frequently accessed it is and even basic algorithms can provide more than
+ 50% compression rates in some cases.
+ 
+\end_layout
+
+\begin_layout Standard
+On table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:data-compression"
+
+\end_inset
+
+ we can see a simple example of offline compression of ISTTOK data for two
+ fast acquisition boards and MARTe for two different shots.
+ The data was first archived using the 
+\emph on
+tar
+\emph default
+ tool and then compressed with two different open-source tools, 
+\emph on
+gzip
+\emph default
+ and 
+\emph on
+bzip2
+\emph default
+, that are standard in every Linux distribuition.
+ A third tool (
+\emph on
+pkzip
+\emph default
+) was also tested but its results were very similar to 
+\emph on
+gzip, 
+\emph default
+so they are not shown here.
+ It is clear that, in the case of ISTTOK , even with generic compression
+ algorithms it is possible to save more than half the of disk space.
+\end_layout
+
+\begin_layout Standard
+\noindent
+\begin_inset Float table
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="8" columns="7">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell multicolumn="1" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Raw 
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="1" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+tar.gz
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="1" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+tar.bz2
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+shot
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+FSHardware
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+size
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+size
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+time
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+size
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+time
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+39142
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+ATCA Board 1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+24 MB 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+9.5 MB 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3.005 s 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+7.1 MB 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4.201s 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Quotes eld
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+ATCA Board 2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+23 MB 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+12 MB 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3.778s 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+8.3 MB 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3.841s 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Quotes eld
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+MARTe
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4.6 MB 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1.9 MB 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.473 s 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1.7 MB 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1.457s 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+40110
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+ATCA Board 1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+24 MB 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+11 MB 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2.873 s 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+8.2 MB 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4.420 s 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Quotes eld
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+ATCA Board 2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+23 MB 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+12 MB 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3.698s 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+8.5 MB 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3.915s 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Quotes eld
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+MARTe
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+990 KB 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+311 KB 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.055 s 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+292 KB 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.553 s 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:data-compression"
+
+\end_inset
+
+An example of data compression at ISTTOK.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+User tools and interfaces
+\end_layout
+
+\begin_layout Standard
+When designing user tools it is important to account not only what people
+ need but also what they want.
+ A developer must be aware that something that may be easy and intuitive
+ for him may not be for others and some features that may seem pointless
+ to him may be invaluable to ensure that eficiency is maintained.
+ Habits are hard to die so when upgrading a system keeping the same look
+ and feel of the old one will make the transition smoother, like it was
+ done, for example, when JET transitioned from NORD computers to PCs.
+\end_layout
+
+\begin_layout Standard
+Regarding data retrieval in fusion research, there has been some proposals
+ for a shift from the pulse/event number paradigma to pattern recognition.
+ The idea is that, for longer pulses and bigger databases with many signals,
+ it will be easier for researchers to look for signal patterns that match
+ phenomena they wish to study, than relying on lists compiled by other people
+ and having to download data for an entire pulse where only a small portion
+ is interesting (p.e., some plasma instabilities last less than a milisecond
+ while an ITER pulse is expected to be in the order of minutes).
+ However, no matter how advanced the recognition algorithm is, it is still
+ necessary to store data according to shot/event, because it is an intuitive
+ way of labeling data and also because it is what most users are expecting,
+ as it was mentioned on the previous paragraph.
+\end_layout
+
+\begin_layout Standard
+User interfaces are very important as they are the tools through which users
+ interact with the CODAC.
+ They should be simple and modular, but at the same time provide users with
+ all the tools they need.
+ Having all functionalities on the same application may look efficient but
+ a single, memory heavy application is more prone to crashes and freezes,
+ besides having a tendency to cluter the screen with excessive information.
+ Functionalities such as configuration, monitoring and data visualization
+ should have independent and specialised tools that must, none the less,
+ share a common look and design philosophy.
+\end_layout
+
+\begin_layout Chapter
+Conclusions and Future Work
+\end_layout
+
+\begin_layout Section
+Conclusions
+\end_layout
+
+\begin_layout Standard
+Designing and implementing a CODAC for a large physics experiment is a very
+ complex and daunting task.
+ It requires rigourous accessment of present challenges and careful planning
+ for future ones.
+ 
+\end_layout
+
+\begin_layout Standard
+FireSignal proved its flexibility in integrating new subsystems but it has
+ become apparent that its design philosophy is too rigid, as some changes
+ required by COMPASS were fundamentaly against its original design, namely
+ the hierarchycal message structure.
+ Also, transferring large quantities of data is an issue that is not satisfactor
+ily addressed by FireSignal, because of the inherent bottleneck in its structure.
+ A distributed architecture can help with this, has it was seen in CDB.
+ Related to this issue is the impredictable overheads and timeouts of CORBA
+ communications, which causes delays in data transfer.
+ On the other hand, CORBA has proved to be a good solution for the interoperabil
+ity of different FireSignal modules, so a similar solution with less and
+ more predictable overhead should be considered.
+ Another issue related to FireSignal, that became apparent during this work,
+ were the drawbacks of Java-based technology, specially regarding memory
+ usage.
+ Also, the security in Java Web Start has increased in every new version
+ and currently all the applications described on this thesis that use this
+ technology require extra configuration
+\begin_inset CommandInset citation
+LatexCommand cite
+key "key-java-security"
+
+\end_inset
+
+, which is not in line with the initial objective of being easy to use.
+ Because of this, alternatives are now being studied.
+ Also patent during this work was the fact that the FireSignal/SDAS database
+ lacks flexibility.
+ For example, the acquisition boards used for the reflectometry diagnostic
+ have a mode called 
+\begin_inset Quotes eld
+\end_inset
+
+burst
+\begin_inset Quotes erd
+\end_inset
+
+ that allows to acquire only when the wave launcher is in operation.
+ This could be implemented in FireSignal as different data slices for each
+ 
+\begin_inset Quotes eld
+\end_inset
+
+burst
+\begin_inset Quotes erd
+\end_inset
+
+, but it would imply hundreds of files for each channel in a single pulse.
+ In a case like this, it would be more sensible to store the time in a different
+ way.
+\end_layout
+
+\begin_layout Standard
+The event based data labeling, as implement on FireSignal works well as
+ a generic solution, but in the case of fusion research treating the pulse
+ as a special situation still makes sense, even for longer pulses.
+ Experiments are still being programmed per shot basis and will likely continue
+ to be so in the near future, which means that tagging data and events by
+ shot number is important for researchers to find data of interest to them.
+ It would also be useful to classify events on three categories: 1) pre-programm
+ed events (p.e.
+ pellet injection, probe activation); 2) spontaneous events automatically
+ detected on real-time; 3) events detected by offline analysis.
+ The latter would be specially useful researchers looking for specific phenomena
+ on older data.
+ Proposals for autoamtinc this have been made by J.
+ Vega and his team.
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\begin_layout Section
+Future Work
+\end_layout
+
+\begin_layout Standard
+The collaboration between IPFN and IPP-Prague continues, but currently COMPASS
+ has an autonomous CODAC team that has developed their own forks of IPFN
+ technology.
+\end_layout
+
+\begin_layout Standard
+Changes to FireSignal in ISTTOK are being considered, namely: 
+\end_layout
+
+\begin_layout Itemize
+Replacing the raw binary files with HDF5 files; 
+\end_layout
+
+\begin_layout Itemize
+Support for data compression; 
+\end_layout
+
+\begin_layout Itemize
+Support for signal previews (decimation); 
+\end_layout
+
+\begin_layout Itemize
+Using web technologies to create a more robust yet flexible user interface.
+ 
+\end_layout
+
+\begin_layout Standard
+If these are successful, it may be possible to also apply them to COMPASS.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-lister-iter-codac"
+
+\end_inset
+
+J.B.
+ Lister, et al., 
+\begin_inset Quotes eld
+\end_inset
+
+The status of the ITER CODAC conceptual design
+\begin_inset Quotes erd
+\end_inset
+
+ , Fusion Engineering and Design 83 (2008) 164-169.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-freidberg-plasma physics"
+
+\end_inset
+
+ J.
+ P.
+ Freidberg, Plasma Physics and Fusion Energy, Cambridge University Press,
+ 2007.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-wesson_tokamaks"
+
+\end_inset
+
+J.
+ A.
+ Wesson, Tokamaks, Clarendon Press, 1997.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-breeding-blanket"
+
+\end_inset
+
+D.
+ A.
+ H.
+ Hanaor, et al., 
+\begin_inset Quotes eld
+\end_inset
+
+Solution based synthesis of mixed-phase materials in the Li2TiO3-Li4SiO4
+ system
+\begin_inset Quotes erd
+\end_inset
+
+, Journal of Nuclear Materials 456 (2014), 151-161.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-tokamak-and-stella"
+
+\end_inset
+
+“Introduction to Magnetic Fusion”, [Online].
+ http://www-fusion-magnetique.cea.fr/gb/fusion/principes/principes02.htm [Accessed
+ 2016].
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-compass-website"
+
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+COMPASS tokamak
+\begin_inset Quotes erd
+\end_inset
+
+, [Online].
+ http://www.ipp.cas.cz/vedecka_struktura_ufp/tokamak/tokamak_compass/.
+ [Accessed 2016].
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-panek-compass-reinstall"
+
+\end_inset
+
+R.
+ Panek, et al., 
+\begin_inset Quotes eld
+\end_inset
+
+Reinstallation of the COMPASS-D tokamak in IPPASCR
+\begin_inset Quotes erd
+\end_inset
+
+, Czechoslovak Journal of Physics 56 (2006) 125-137.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-isttok-website"
+
+\end_inset
+
+ 
+\begin_inset Quotes eld
+\end_inset
+
+ISTTOK tokamak
+\begin_inset Quotes erd
+\end_inset
+
+, [Online].
+ http://www.ipfn.ist.utl.pt/isttok/.
+ [Accessed 2016].
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-ivo-isttok-realtime-arch"
+
+\end_inset
+
+I.
+ Carvalho, et al., 
+\begin_inset Quotes eld
+\end_inset
+
+ISTTOK real-time architecture
+\begin_inset Quotes erd
+\end_inset
+
+, Fusion Engineering and Design, 89, (2014), 195-203.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-ivo-tese-phd"
+
+\end_inset
+
+I.
+ Carvalho, Real-time control for long ohmic alternate current discharges,
+ PhD Thesis, Instituto Superior Técnico, Lisbon, 2013.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-valcarcel-atca-for-compass"
+
+\end_inset
+
+D.F.
+ Valcárcel, et al., 
+\begin_inset Quotes eld
+\end_inset
+
+An ATCA Embedded Data Acquisition and Control System for the Compass tokamak
+\begin_inset Quotes erd
+\end_inset
+
+, Fusion Engineering and Design 84 (2009), 1901-1904.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-jet-website"
+
+\end_inset
+
+“JET tokamak”, [Online].
+ Available: https://www.euro-fusion.org/jet/.
+ [Accessed 2016].
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-krom-codas-jet"
+
+\end_inset
+
+J.G.
+ Krom, 
+\begin_inset Quotes eld
+\end_inset
+
+The evolution of control and data acquisition at JET
+\begin_inset Quotes erd
+\end_inset
+
+, Fusion Engineering and Design 43 (1999) 265-273.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-vega-new-develop-jet"
+
+\end_inset
+
+J.
+ Vega, et al., 
+\begin_inset Quotes eld
+\end_inset
+
+New developments at JET in diagnostics, real-time control, data acquisition
+ and information retrieval with potential application to ITER
+\begin_inset Quotes erd
+\end_inset
+
+, Fusion Engineering and Design 84 (2009) 2136-2144.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-w7x-website"
+
+\end_inset
+
+“Wendelstein 7-X stellarator”, [Online].
+ Available: https://www.ipp.mpg.de/16931/einfuehrung.
+ [Accessed 2016].
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-bluhm-w7x-codas"
+
+\end_inset
+
+T.
+ Bluhm, et al., 
+\begin_inset Quotes eld
+\end_inset
+
+Wendelstein 7-X's CoDaStation: A modular application for scientific data
+ acquisition
+\begin_inset Quotes erd
+\end_inset
+
+, Fusion Engineering and Design 89 (2014) 658-662.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-laqua-wega-w7x-tests"
+
+\end_inset
+
+H.
+ Laqua, et al., "Test of the steady state W7-X control and data acquisition
+ system at the WEGA stellarator", Fusion Engineering and Design 85 (2010)
+ 520-524
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-nif-website"
+
+\end_inset
+
+“National Ignition Facility”, [Online].
+ Available: https://lasers.llnl.gov/.
+ [Accessed 2016].
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-carey-nif-repository"
+
+\end_inset
+
+R.
+ Carey, et al., "The National Ignition Facility Data Repository", Proceedings
+ Of ICALEPCS2009, Kobe, Japan.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-neto-firesignal"
+
+\end_inset
+
+A.
+ Neto, et al., “FireSignal—Data acquisition and control system software
+\begin_inset Quotes erd
+\end_inset
+
+, Fusion Engineering and Design 82 (2007), 1359-1364.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-corba"
+
+\end_inset
+
+Object Management Group, CORBA/IIOP Specification, Document — format/04-03-01
+ (CORBA, v3.0.3), March 2004.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-neto-sdas"
+
+\end_inset
+
+A.
+ Neto, et al., “A standard data access layer for fusion devices R&D programs
+\begin_inset Quotes erd
+\end_inset
+
+, Fusion Engineering and Design 82 (2007), 1315-1320.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-neto-marte"
+
+\end_inset
+
+A.
+ Neto, et al., 
+\begin_inset Quotes eld
+\end_inset
+
+MARTe: A Multiplatform Real-Time Framework
+\begin_inset Quotes erd
+\end_inset
+
+, IEEE Transactions On Nuclear Science 57 (2010), 479-486.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-batista-atca-jet"
+
+\end_inset
+
+A.
+ J.
+ N.
+ Batista, et al., 
+\begin_inset Quotes eld
+\end_inset
+
+ATCA control system hardware for the plasma vertical stabilization in the
+ JET tokamak
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-rimini-vertical-stab-jet"
+
+\end_inset
+
+F.
+ G.
+ Rimini, et al., 
+\begin_inset Quotes eld
+\end_inset
+
+First plasma operation of the enhanced JET vertical stabilisation system
+\begin_inset Quotes erd
+\end_inset
+
+, Fusion Engineering and Design 86 (2011), 539-543.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-ivo-isttok-ac-discharges"
+
+\end_inset
+
+I.
+ Carvalho, et al., “Real-time control for long ohmic alternate current discharges
+”, Fusion Engineering and Design 89 (2014), 576-581.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-janky-compass-realtime"
+
+\end_inset
+
+F.
+ Janky, et al., 
+\begin_inset Quotes eld
+\end_inset
+
+Upgrade of the COMPASS tokamak real-time control system
+\begin_inset Quotes erd
+\end_inset
+
+, Fusion Engineering and Design 89 (2014), 186-194.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-urban-cdb"
+
+\end_inset
+
+J.
+ Urban, et al., “Integrated data acquisition, storage, retrieval and processing
+ using the COMPASS DataBase (CDB)”, Fusion Engineering and Design 89 (2014),
+ 712-716.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-valcarcel-realtime-compass"
+
+\end_inset
+
+D.F.
+ Valcárcel, et al., “Real-Time Software for the COMPASS Tokamak Plasma Control”,
+ Fusion Engineering and Design 85 (2010), 470-473.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-batista-pcie-atca-boards"
+
+\end_inset
+
+A.
+ J .N.
+ Batista, et al., "ATCA/AXIe compatible board for fast control and data acquisiti
+on in nuclear fusion experiments", Fusion Engineering and Design 87 (2012),
+ 2131-2135.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-how-trends"
+
+\end_inset
+
+J.
+ A.
+ How, et al., 
+\begin_inset Quotes eld
+\end_inset
+
+Trends in computing systems for large fusion experiments
+\begin_inset Quotes erd
+\end_inset
+
+, Fusion Engineering and Design 70 (2004), 115-122.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-java-security"
+
+\end_inset
+
+ 
+\begin_inset Quotes eld
+\end_inset
+
+Security level settings in the Java Control Panel
+\begin_inset Quotes erd
+\end_inset
+
+, [Online].
+ Available: https://www.java.com/en/download/help/jcp_security.xml.
+ [Accessed 2016].
+\end_layout
+
+\end_body
+\end_document

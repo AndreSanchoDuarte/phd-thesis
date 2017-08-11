@@ -1,0 +1,129 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass book
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Chapter
+Conclusions
+\end_layout
+
+\begin_layout Standard
+Using Java-based technology has its drawbacks: High memory usage (plotting
+ data) Java Web Start security has tightened (extra configuration required
+ to launch applications) The FireSignal/SDAS database lacks flexibility:
+ In some cases it makes more sense to store a time array Changes to nodes
+ may affect the retrieval of previously stored data The event paradigm is
+ sound, but having the pulse treated as a special event still makes sense
+ CDB addresses these issues.
+\end_layout
+
+\begin_layout Standard
+A single application providing all functionalities sounds good in theory,
+ but in practice has its issues: Becomes more prone to crashes and freezes
+ Too much information can overload the user Changing a component will inevitably
+ affect everything CORBA has proved to be a good solution for the interoperabili
+ty of different FireSignal modules However, the larger overhead means that
+ it is not the best solution for data transfer Thanks to the modular design
+ of FireSignal, the complexity of integrating different subsystems was reduced.
+\end_layout
+
+\begin_layout Section
+Achievements
+\end_layout
+
+\begin_layout Standard
+FireSignal and SDAS installation in COMPASS Development support was given
+ for the transition to CDB: Participated in the the design phase Helped
+ converting the data in the old database to the new one Developed the first
+ version of the FS database controller for CDB Integration of the fast real-time
+ control system: Designed and developed a Java FS Node that could communicate
+ with MARTe by HTTP Developed a MARTe configuration file parser that has
+ been used in other projects, like the Fast Plant System for ITER Integration
+ of the Reflectometry diagnostic: Adapted existing C++ code to create a
+ Node for the acquisition boards Developed a Node in C++ to configure the
+ wave launcher, using telnet.
+\end_layout
+
+\begin_layout Section
+Future Work
+\end_layout
+
+\begin_layout Standard
+The collaboration between IPFN and IPP continues, but currently COMPASS
+ as an autonomous CODAC team that has developed their own forks of IPFN
+ technology Changes to FireSignal in ISTTOK are being considered, namely:
+ Replacing the raw binary files with HDF5 files; Support for data compression;
+ Support for signal previews (decimation); Using web technologies to create
+ a more robust yet flexible user interface.
+ If these are successful, it may be possible to also apply them to COMPASS
+ 
+\end_layout
+
+\end_body
+\end_document

@@ -1,0 +1,14 @@
+#32118 - the 32 bit node was used.
+#32120 - " " " with plasma
+#31652 - Software shot
+#31668 - MARTe failure
+
+#31916
+#31942
+#31972 - Some channels have some signal
+#31974
+#32060
+#32116 - FRAEP failure
+
+#31678 X
+#32134 - Edwards system failure X

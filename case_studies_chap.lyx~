@@ -1,0 +1,70 @@
+#LyX 1.5.6 created this file. For more info see http://www.lyx.org/
+\lyxformat 276
+\begin_document
+\begin_header
+\textclass book
+\language english
+\inputencoding auto
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\paperfontsize default
+\spacing single
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\cite_engine basic
+\use_bibtopic false
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\author "" 
+\end_header
+
+\begin_body
+
+\begin_layout Chapter
+Case Studies
+\end_layout
+
+\begin_layout Section
+JET
+\end_layout
+
+\begin_layout Standard
+The Joint European Torus (JET) is currently the largest tokamak in operation
+ in the world.
+ It was designed in the mid 1970s and its operation began in 1983.
+ It is installed near Culham, Oxfordshire in the UK and is managed through
+ the European Fusion Development Agreement (EFDA).
+ Not only was here that the first controlled release of fusion energy happens,
+ but it also detains the world record in fusion power (16 MW).
+ In 2006 operation was started with an ITER-like magnetic configuration
+ and in 2011 an ITER-like wall was installed, thus becoming the key on the
+ preparation for ITER operation.
+ For the scope of this thesis, JET represents a good example of a large
+ experiment that has been running for several decades, during a time of
+ significant technological advancements, where the 
+\end_layout
+
+\begin_layout Section
+Wendelstein-7X
+\end_layout
+
+\end_body
+\end_document

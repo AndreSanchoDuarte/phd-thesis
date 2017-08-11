@@ -1,0 +1,468 @@
+#LyX 1.5.6 created this file. For more info see http://www.lyx.org/
+\lyxformat 276
+\begin_document
+\begin_header
+\textclass book
+\language english
+\inputencoding auto
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\paperfontsize default
+\spacing single
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\cite_engine basic
+\use_bibtopic false
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\author "" 
+\author "" 
+\end_header
+
+\begin_body
+
+\begin_layout Chapter
+CODAC Tools on ISTTOK and Compass
+\end_layout
+
+\begin_layout Standard
+The CODAC in ISTTOK and Compass share several common tools and are thus
+ somewhat similar.
+ These tools were designed to be flexible, modular, independent from operating
+ system and computer architecture.
+ This is achieved by using non-proprietary open-source software, industry
+ standards and cross-platform programming languages.
+ These systems are open-source and their code is stored in a subversion
+ repository.
+\end_layout
+
+\begin_layout Section
+FireSignal
+\end_layout
+
+\begin_layout Standard
+FireSignal is the part of the CODAC that allows the operator to configure
+ and monitor the experiments, also retrieving data from diagnostics and
+ storing it in the database.
+\end_layout
+
+\begin_layout Standard
+As a fully modular system FireSignal avoids dependencies of particular technolog
+ies.
+ It is composed of five different modules, which provide all the functionality
+ to the system:
+\end_layout
+
+\begin_layout Itemize
+Central Server—works as bridge between all the other components.
+ It is responsible for managing all the connections, commands and data broadcast.
+ 
+\end_layout
+
+\begin_layout Itemize
+Database connector—controls the installed database, storing and fetching
+ data when ordered by the Central Server, providing an abstract layer, independe
+nt of the database solution.
+ 
+\end_layout
+
+\begin_layout Itemize
+Security Manager—the Central Server queries this component to authenticate
+ users and nodes and to authorize all the operations.
+ The security schema used (LDAP, PAM, etc.) is abstracted by the security
+ manager.
+ 
+\end_layout
+
+\begin_layout Itemize
+Hardware Clients—these are responsible for driving the devices and for data
+ readout.
+ Template nodes, with the communication to the Central Server already implemente
+d, are provided in different languages and can be extended to integrate
+ any hardware device.
+ 
+\end_layout
+
+\begin_layout Itemize
+User Clients—these are the graphical user-interfaces, which allow the interactio
+n with the system.
+ It is the only optional component as the system can still operate without
+ direct human intervention, e.g.
+ when FireSignal works as a system which receives orders from other data
+ acquisition system.
+\end_layout
+
+\begin_layout Standard
+All the components are connected through CORBA allowing them to run in different
+ operating systems and to be written in different computer languages.
+ Currently FireSignal is using Java and C++ as main languages.
+ 
+\end_layout
+
+\begin_layout Subsection
+Database connector
+\end_layout
+
+\begin_layout Standard
+All data arrives tagged with two absolute time-stamps: acquisition start
+ time, end time.
+ These can later be used to generate time arrays and correlate data.
+ The data also comes tagged with an event.
+ A large number of what happens during the discharge can be considered an
+ event.
+ Examples of events include the discharge start trigger, external triggers
+ and disruptions.
+ Events are defined by a unique name and number and by an absolute time-stamp.
+ In the case of ISTTOK the event shot is defined by the string ‘0x0000’,
+ where the unique number is the shot number and the time-stamp the time
+ in which there is the formation of plasma.
+ The accuracy of these times stamps isn't guaranted by FireSignal so an
+ external timing system is necessary.
+\end_layout
+
+\begin_layout Standard
+The installer for FireSignal originaly came with three database connector
+ implementations: MySQL, PostgreSQL and PostgreSQL with external files for
+ the binary data.
+ A fourth, supporting Compass Database (CDB), was developed later.
+ This one was also used as a base for a version using HDF5 (as opposed to
+ plain binary files) files to store data, which isn't currently being used.
+ 
+\end_layout
+
+\begin_layout Subsection
+Hardware Clients
+\end_layout
+
+\begin_layout Standard
+Hardware clients, also named nodes, provide the interface between the installed
+ devices and the Central Server.
+ Their main responsibilities are the configuration of hardware, tagging
+ data and events with the correct time-stamps and sending them to the server.
+ Nodes are organized as follows: 
+\end_layout
+
+\begin_layout Itemize
+Nodes contain Hardware devices.
+\end_layout
+
+\begin_layout Itemize
+Hardware devices contain parameters.
+\end_layout
+
+\begin_layout Itemize
+Parameters contain configuration fields.
+\end_layout
+
+\begin_layout Standard
+This organization is not very different from a typical acquisition system,
+ with crates (Nodes) containing boards (Hardware) with several channels
+ (parameters).
+ By default, each parameter in the same hardware has a different value for
+ the same configuration fields but it's possible to have them share the
+ same value.
+\end_layout
+
+\begin_layout Standard
+Nodes are described in two types of XML files, one for the Node iself and
+ another for each Hardware.
+ The Node file is very simple, only containing the name and description
+ for the node itself.
+ The Hardware file contains the name and description for the hardware itself
+ and also the list of parameters and their fields.
+ Parameters and fields can be defined to be editable or not, it is possible
+ to force fields be not be empty, have their value shared across the same
+ Hardware and it also defines their type.
+ Parameters have a mime-type that is used to determine how to store and
+ display data (there is a plugin system that allows user defined mime-types).
+ Likewise, there are several standard defined field types and it is possible
+ to have user-defined types, thanks to the plugin system.
+\end_layout
+
+\begin_layout Subsection
+CORBA
+\end_layout
+
+\begin_layout Standard
+As with all the FireSignal components, the communication between the Nodes
+ and the Central Server is perform through CORBA.
+ Each Node implements the FireSignal server–node communication standard.
+ The number of functions is quite significant and ranges from hardware configura
+tion details to event broadcasting and data acquisition.
+ FireSignal is bundled with server–node communication standard implementations
+ in two different languages: Java and Python (C++ is now being developed).
+ This allows developers to focus only in the interface between Nodes and
+ hardware without having to learn or concern about the communication protocol
+ with the Central Server.
+\end_layout
+
+\begin_layout Subsection
+User Client
+\end_layout
+
+\begin_layout Standard
+The user client is a standalone application, developed in Java and deployed
+ using Java Web Start (JWS) technology, serving as a front-end of the FireSignal
+ system.
+ Distributing through JWS downloads all necessary libraries and if any of
+ these are updated it will also update them automatically.
+ The parameter configuration interface is automatically generated, using
+ the XML Hardware configuration file and the default configuration options
+ can extended by loading plugins.
+ Besides configuration, it also allows the supervision of the states of
+ each Node and Hardware, it allows remote participation, it includes a data
+ viewer and it also has the possibility of performing data analysis using
+ an external tool, but this feature is not currently implemented.
+ The data viewer only supports one dimensional data, but it can be extended
+ with plugins to show more complex data, accordind to the mime-type.
+\end_layout
+
+\begin_layout Standard
+Users can connect to the system anywere in the world, given that they are
+ registered.
+ There is a basic chat room (powered by Jabber) and users are also able
+ to send data references that they fin relevant to the discussion to each
+ other.
+ FireSignal recognizes three roles:
+\end_layout
+
+\begin_layout Itemize
+Regular user: can see configurations, and data.
+ Can use the chat and share data;
+\end_layout
+
+\begin_layout Itemize
+Administrator: manages users;
+\end_layout
+
+\begin_layout Itemize
+Operator: can configure the experiment and operate the machine.
+\end_layout
+
+\begin_layout Standard
+It also supports groups with special permissions, for the case were a group
+ of researchers is responsible for the configuration of a susbsystem but
+ are not authorized to operate the machine.
+\end_layout
+
+\begin_layout Section
+SDAS
+\end_layout
+
+\begin_layout Standard
+The Shared Data Access System (SDAS) is the part of the CODAC of ISTTOK
+ that is reponsible to find and retrieve data from the database.
+ SDAS is based on Remote Procedure Calls (RPC) specifically XML-RPC, where
+ the calls are made by HTTP using the XML format.
+ SDAS was designed to be used by many different associations, with the objective
+ of users only using a single set of libraries to access any database of
+ the adopting associations.
+ To achieve this it is required for each association to develop a software
+ component which would translate the SDAS calls into something meaningful
+ to their data storage system.
+ There are connectors already available for PostgreSQL and MySQL relational
+ databases, with the option of storing data as a binary blob inside the
+ database itself or as a binary file (raw or HDF5).
+\end_layout
+
+\begin_layout Standard
+SDAS design shares some similarities with FireSignal.
+ Data is also indexed by time (start time and end time) and events but a
+ signal unique identifier doesn't necessarily need to follow the node-hardware-s
+tructure used by FireSignal.
+ Data is also treated by default as a one-dimensional array of values but
+ it is possible to extend SDAS to support more complex data, like images
+ for example.In the case of varying acquisition rates, it is possible to
+ have the data in slices, each with its own start and end times, and the
+ system will recognize them as being part of the same data set.
+ Data can have linear calibration coeficients applied to them, but on the
+ other hand it is not possible to retrieve the raw data as it is stored:
+ even without coeficients it always returns in double-precision floating-point
+ format.
+\end_layout
+
+\begin_layout Standard
+On the user side, there are libraries in Java, Python and C++ that can be
+ used for programing or be integrated in data analysis software like Matlab,
+ IDL and Octave.
+ There is a simple data viewer in Java that has basic functionalities implemente
+d, allowing users to search for signals and events and view data in either
+ a plot or a table.
+ There is also a Web tool that allows users to search on any web browser
+ for all the data generated by a specific event and to download signals
+ as binary files.
+ SDAS as a basic authentication protocol that allows authorized users to
+ save processed data on the main database.
+ This feature is being used at ISTTOK to store the automated calculations
+ of plasma density and plasma current after each shot.
+\end_layout
+
+\begin_layout Section
+MARTe
+\end_layout
+
+\begin_layout Standard
+Developed at JET, MARTe is a modular framework designed for real-time projects,
+ specially real-time control.
+ It is built on a C++ real-time library named BaseLib2, that allows the
+ same code to run in different operating systems.
+ The main features of BaseLib2 are:
+\end_layout
+
+\begin_layout Itemize
+configuration file, used to automatically create and configure objects;
+\end_layout
+
+\begin_layout Itemize
+garbage collector for memory managment;
+\end_layout
+
+\begin_layout Itemize
+HTTP interface vailable for all objects;
+\end_layout
+
+\begin_layout Itemize
+built-in mathematical and algebraic tools;
+\end_layout
+
+\begin_layout Itemize
+configurable logger, including a tool in Java to receive and filter logger
+ messages.
+\end_layout
+
+\begin_layout Standard
+Being a modular design, MARTe itself is made of different components.
+ The basic ones are:
+\end_layout
+
+\begin_layout Itemize
+Generic Application Module (GAM): the main element of MARTe.
+ 
+\end_layout
+
+\begin_layout Itemize
+Dynamic Data Buffer
+\end_layout
+
+\begin_layout Itemize
+Real-Time Thread
+\end_layout
+
+\begin_layout Section
+CDB
+\end_layout
+
+\begin_layout Standard
+The Compass DataBase (CDB) is the part of the CODAC of Compass that is reponsibl
+e to find and retrieve data from the main database.
+ Originaly Compass used an implementation of SDAS but do the perceived shortcomi
+ngs a new solution was designed.
+ The main features of CDB are:
+\end_layout
+
+\begin_layout Itemize
+Nothing stored can be overwritten; instead, revisions are possible as corrective
+ actions;
+\end_layout
+
+\begin_layout Itemize
+Shots are separate from other events;
+\end_layout
+
+\begin_layout Itemize
+A relational database is used to store metadata of the numerical data and
+ also physical quantities names, units and information about the axis;
+\end_layout
+
+\begin_layout Itemize
+Time can be stored as an array or just the start and end of the acquisition;
+\end_layout
+
+\begin_layout Itemize
+Data files (HDF5) can be written directly on the main data storage without
+ having to pass through a central server.
+\end_layout
+
+\begin_layout Standard
+The core application is implemented in Python (pyCDB), with Cython being
+ used to wrap the Python code in a C API.
+ Matlab, IDL etc.
+ clients can then be built using the C API.
+ There is also a Java binding using Jython.
+\end_layout
+
+\begin_layout Subsection
+Integrating CDB and FireSignal
+\end_layout
+
+\begin_layout Standard
+For CDB and FireSignal integration, two things were required:
+\end_layout
+
+\begin_layout Enumerate
+Design CDB in such a way that FireSignal identifiers for channels and events
+ would still be recognized and usable;
+\end_layout
+
+\begin_layout Enumerate
+Develop a new FireSignal database controller module, for legacy Nodes.
+\end_layout
+
+\begin_layout Standard
+The second point would still cause the issue of bottlenecking that CDB was
+ trying to solve, but it was considered necessary not only because it would
+ allow Compass to operate normally until all nodes had been converted to
+ the new data storage method but it would also allow Nodes developed at
+ IPFN to be tested on Compass before any major changes were applied.
+ The first point was achieved by having functions on the API that convert
+ between FireSignal IDs and CDB IDs and vice-versa.
+ The biggest challenge regarding the second point was the fact that the
+ CDB tools that existed to write the meta-data on the database were only
+ available in Python, so a bridge between Java and Python had to be used.
+ At first Java Embedded Python (JEP) was used as it was more straightforward
+ than Jython, however Jython was easier to install and thus it was used
+ for the Java API bridge.
+ Since it didn't make sense to use two different tools to perform basicaly
+ the same task, eventually Jython replaced JEP.
+ The database controller acts like a regular FireSignal one but with some
+ extra steps:
+\end_layout
+
+\begin_layout Enumerate
+Because the two relational databases are being used in parallel, the controller
+ stores meta-data on the FireSignal Database like usual;
+\end_layout
+
+\begin_layout Enumerate
+Following CDB procedure, a request is made for a new signal ID;
+\end_layout
+
+\begin_layout Enumerate
+The data and the FireSignal XML shot configuration file are stored in a
+ single HDF5 file;
+\end_layout
+
+\begin_layout Enumerate
+Meta-data is stored on CDB relational database.
+\end_layout
+
+\end_body
+\end_document

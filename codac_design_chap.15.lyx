@@ -1,0 +1,241 @@
+#LyX 1.5.6 created this file. For more info see http://www.lyx.org/
+\lyxformat 276
+\begin_document
+\begin_header
+\textclass book
+\language english
+\inputencoding auto
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\paperfontsize default
+\spacing single
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\cite_engine basic
+\use_bibtopic false
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\author "" 
+\end_header
+
+\begin_body
+
+\begin_layout Chapter
+Future CODAC Design
+\end_layout
+
+\begin_layout Standard
+As we have seen throughout this thesis, CODACs for large, long duration
+ experiments face similar challenges.
+ Many of these were experienced during the work at ISTTOK and Compass tokamaks.
+ This chapter discusses how these challenges should be tackled on future
+ designs.
+\end_layout
+
+\begin_layout Section
+Guiding Principles 
+\end_layout
+
+\begin_layout Standard
+During the work leading to this thesis it became clear that good CODAC design
+ for a large experiment must follow three principles that are somewhat related:
+\end_layout
+
+\begin_layout Itemize
+Scalability
+\end_layout
+
+\begin_layout Itemize
+Adaptability
+\end_layout
+
+\begin_layout Itemize
+Autonomy
+\end_layout
+
+\begin_layout Subsection
+Scalability
+\end_layout
+
+\begin_layout Standard
+As we have seen from the case studies and from experience with ISTTOK and
+ Compass, long duration experiences have a tendency to grow.
+ New or improved diagnostics are a necessity to improve the scientific output
+ and keep the laboratory relevant.
+ This usually implies more acquisition channels and faster rates.
+ Advancements on electronics will also push the desire for faster rates
+ and more bits per sample.
+ New techniques (like AC discharges on ISTTOK) can also increase the amount
+ of data generated for each session.
+ Because its desirable that core elements of a CODAC don't change radicaly
+ during the experiment lifetime it needs to be ready for this growth.
+ Radical changes can costly both in time and money, not only to upgrade
+ the system but also to retrain the staff.
+\end_layout
+
+\begin_layout Subsection
+Adaptability
+\end_layout
+
+\begin_layout Standard
+As new technology becomes available it tends to be less and less compatible
+ with old technology.
+ As such a CODAC must not be too dependent on a given technology, but it
+ should be adaptable to changes that are certain to come, even if they are
+ not obvious.
+ On the other hand, it should be prepared to have different technologies
+ working side by side.
+ Using fusion resarch as an example, there is a tendency to use cutting-edge
+ technology, as fusion energy itself is cutting-edge, however stable and
+ robust technology is also desirable to protect the investment and the machine
+ itself.
+ That's why space programs still use last century technology, as they can't
+ afford any level of failure.
+\end_layout
+
+\begin_layout Subsection
+Autonomy
+\end_layout
+
+\begin_layout Standard
+If a CODAC should not be too dependent on a single technology, it should
+ also not be dependent of a single software or hardware company.
+ Turnkey solutions are apealing, specially when they offer a complete environmen
+t, but can be costly on the long run, as these solution may not offer the
+ flexibility required by a large experiment.
+ Being able to modify the system without legal restrictions is the easiest
+ way to ensure scalability and adaptability.
+ Of course this is not always possible, but a certain degree of autonomy
+ must be ensured.
+\end_layout
+
+\begin_layout Section
+Proposals
+\end_layout
+
+\begin_layout Subsection
+General Design
+\end_layout
+
+\begin_layout Standard
+One of the key features that a CODAC should have is undoubtably modularity.
+ This concept is not new, as it was already present on the early designs
+ of JET CODAS, but it is indeed essential if one wants to achieve scalability
+ and adaptability.
+ Idealy, a CODAC should be composed of several different modules, each with
+ its own well-defined function and without overlaps.
+ The connection between modules should be done in a generic and transparent
+ way; each module should not be concerned about the inner workings of other
+ modules.
+ This will also allow modules to be tested outside the main system and be
+ integrated without major changes.
+\end_layout
+
+\begin_layout Standard
+Typically a hierarchical tree-like topology is used, where each component
+ only communicates with the components directly above and below on the hierarchy.
+ Such structure is also found in object oriented programing as it is an
+ intuitive way to implement a transparent module-based structure.
+ However this structue isn't flexible enough and can lead to bottlenecks
+ and excessive complexity.
+ Take for example what happened at COMPASS, where data transfer to the database
+ was hitting a bottleneck at the Central Server of FireSignal, so a bypass
+ between Nodes and Database Manager was implemented.
+ Another example: there has also been some internal discussion on the ISTTOK
+ team regarding a new trigger distribuition hardware and how it should handle
+ events, which has lead to considering a less centralised event distribution.
+ In conclusion, the structure the structure should allow flexibility, with
+ each module being capable of direct communication with more than those
+ directly above and below, in what is called a partially connected mesh
+ topology.
+\end_layout
+
+\begin_layout Subsection
+Data collection and access
+\end_layout
+
+\begin_layout Standard
+As it was mentioned, experimental data volume increase is a given on these
+ types of experiments so it is important for a CODAC to be prepared for
+ it.
+ This growth has two major implications: i) network bandwidth for data transfer
+ and ii) data storage space.
+ Bandwidth is specially important when one considers that, in experiments
+ like ITER, some of the data must be streamed in real-time.
+ Such data, particularly when concerning critical systems such as machine
+ security, must have a dedicated network, physically separated from the
+ main internal network.
+\end_layout
+
+\begin_layout Standard
+To avoid data transfer bottlenecks, a solution similar to the one adopted
+ at COMPASS, where data is written directly in a database cluster, is one
+ of the best approaches, but it can be made more transparent.
+ The best way to achieve this is to implement a cluster database using different
+ disks on different machines (which could even be the same crate where the
+ acquisition boards are installed) which the Database Connector would treat
+ as a single machine.
+ Systems like this have been implemented in data warehouses where it was
+ proved its large scalling potential, the absence of bottlenecks but also
+ that queries involving joins over large data sets from different machines
+ may take longer than expected.
+ This issue can be handled by implementing a system similar to JET, with
+ a second centralised database where priority data can be stored imediatelly
+ and can also serve as a backup for the distributed database.
+\end_layout
+
+\begin_layout Standard
+Data should be stored in a standard format, so that researchers may be able
+ to open it and extract the information regardless of their favourite data
+ analisys tool.
+ Naturally, the most universal format should be raw binary but it has some
+ drawbacks, namely the fact that code developed in one archicture is not
+ guaranted to be 100% portable unless the developer takes measurers that
+ only make the code more complicated and harder to read, specially for physicist
+s who may want to use the code but are not familiar with this situation.
+ As there are ISO standards that are widely used and are transparent to
+ end-users, these provide a better alternative to raw storage.
+\end_layout
+
+\begin_layout Standard
+Another measure that can be used to address both large data transfers and
+ storage is compression.
+ There are many algorithms available, both open-source and proprietary,
+ lossless and lossy, some even taylored for fusion data.
+ Lossy algorithms are normaly rejected, as researchers like to have access
+ to as much data as possible, but can be usefull for the streaming of non-critic
+al data (p.e., video from inside the machine).
+ A downside to compression is that it can sometimes take so much time that
+ any transfer time gain is rendered moot, so this must be taken into considerati
+on when deciding to compress the data and which algorithm to use.
+ A situation where the compression-decompression overhead is not as critical
+ is long term storage since, tipically, the older the data is, the less
+ frequently accessed it is and even basic algorithms can provide more than
+ 50% compression rates in some cases.
+ 
+\end_layout
+
+\begin_layout Subsection
+User tools and interfaces
+\end_layout
+
+\end_body
+\end_document

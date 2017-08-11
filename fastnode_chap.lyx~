@@ -1,0 +1,138 @@
+#LyX 1.5.6 created this file. For more info see http://www.lyx.org/
+\lyxformat 276
+\begin_document
+\begin_header
+\textclass book
+\language english
+\inputencoding auto
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\paperfontsize default
+\spacing single
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\cite_engine basic
+\use_bibtopic false
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\author "" 
+\author "" 
+\end_header
+
+\begin_body
+
+\begin_layout Section
+Fast Acquisition Node
+\end_layout
+
+\begin_layout Standard
+This C++ node was developed for PCIe (need reference) acquisition boards.
+ These boards have 32 18-bit ADC channels that can acquire up to 2 Mega
+ samples per second.
+ The node accesses directly the board through driver commands.
+ 
+\end_layout
+
+\begin_layout Standard
+With the node interface it is possible to configure:
+\end_layout
+
+\begin_layout Itemize
+Clock source: choice between shared (common to all boards on the same crate)
+ or local
+\end_layout
+
+\begin_layout Itemize
+Trigger source: choice between shared or local
+\end_layout
+
+\begin_layout Itemize
+Trigger type: choice between software (acquisition begins immediately) or
+ hardware (waits for external trigger)
+\end_layout
+
+\begin_layout Itemize
+Acquisition time:
+\end_layout
+
+\begin_layout Itemize
+Trigger delay: configurable delay, in ms, from the trigger arrival and the
+ acquisition start
+\end_layout
+
+\begin_layout Itemize
+Delay time: delay to be added to the data timestamps, to compensate for
+ possible trigger differences with other boards
+\end_layout
+
+\begin_layout Standard
+Besides these fields, there are three other that are not configurable, being
+ used for information and reference:
+\end_layout
+
+\begin_layout Itemize
+Frequency: the acquisition rate is fixed at 2 Msamples/s.
+\end_layout
+
+\begin_layout Itemize
+On board memory size
+\end_layout
+
+\begin_layout Itemize
+DMA byte size
+\end_layout
+
+\begin_layout Standard
+This node defines a main event that usually refers to the plasma start.
+ When a new event arrives the configurations are sent to the boards, which
+ then wait for trigger.
+ In case software trigger is selected, a call is made to the driver, starting
+ the acquisition.
+ 
+\end_layout
+
+\begin_layout Standard
+Acquired data is tranfered to the node as a signed 32 bit integer array,
+ with the extra bits padded with 0.
+\end_layout
+
+\begin_layout Subsection
+16-bit Node
+\end_layout
+
+\begin_layout Standard
+From the data transmission and storage point of view, using 32 bits to store
+ 18 bit values results in 43.75% of space being wasted.
+ To improve this situation, two solutions were considered: compress the
+ data or only store the 16 most significant bits.
+ Some tests were performed to evaluate these solutions.
+ 
+\end_layout
+
+\begin_layout Standard
+Using some acquisitions when there was no plasma on the chamber, we analysed
+ the noise level coming from the boards.
+ Assuming it was gaussian noise, we took the standard deviation.
+ We can see some examples on the next table
+\end_layout
+
+\end_body
+\end_document

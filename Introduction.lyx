@@ -1,0 +1,92 @@
+#LyX 1.5.6 created this file. For more info see http://www.lyx.org/
+\lyxformat 276
+\begin_document
+\begin_header
+\textclass book
+\language english
+\inputencoding auto
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\paperfontsize default
+\spacing single
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\cite_engine basic
+\use_bibtopic false
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\author "" 
+\author "" 
+\end_header
+
+\begin_body
+
+\begin_layout Chapter
+Introduction
+\end_layout
+
+\begin_layout Standard
+Data acquisition is a key aspect of every experiment, since without it nothing
+ can be learned.
+ During the history of science, instrumentation and knowledge formed a feedback
+ loop, where better instruments have provided humans with better understanding
+ of natural fenomena which allows the develpment of more advanced instruments.
+ This relation is cleary visible on the development of electronics during
+ the past decades.
+ Long running physics experiments are naturally sensitive to these developments
+ and the design of their data acquisition systems must take this into account.
+ As these systems become ever more complex, the concept of CODAC emerges.
+ CODAC stands for Control, Data Access and Communication and can be considered
+ an extension of the CODAS (control and data acquisition system) as it treats
+ all systems that are part of an experiment (namely control of the experiment,
+ data collection, data access and plant security) as a whole.
+ Although te specific needs of an experiment must be taken into account
+ when designing a CODAC, there are several key features that should be taken
+ into acount.
+ This thesis uses the implementation of a CODAC for a specific experiment
+ as the starting point for a study on how to design a CODAC for modern,
+ large physicals experiments, taking into account not just their specific
+ needs but also a boarder view.
+\end_layout
+
+\begin_layout Section
+Motivation
+\end_layout
+
+\begin_layout Standard
+With the installation of the COMPASS tokamak in Prague, it was necessary
+ to install a CODAC system for the experiment.
+ Over the years, new diagnostics and actuators would be installed and thus
+ required to be integrated on the CODAC.
+ During this time, the CODAC itself, its design and software would need
+ to be updated to answer new challenges and issues.
+ The operation would be based on the novel ATCA control and acquisition
+ boards developed on IPFN.
+ These possess advanced technical features, namely state-of-art FPGA for
+ signal processing, multi-Gigabit/s point-to point serial links for super-fast
+ data sharing across all the input channels and a sub nano-second synchronous
+ timing/event distribution network.
+ A successful integration in the CODAC meant that these features must be
+ taken into account, so that they can be used at their full potential.
+\end_layout
+
+\end_body
+\end_document

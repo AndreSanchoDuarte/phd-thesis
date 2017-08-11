@@ -1,0 +1,251 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass book
+\use_default_options false
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 1
+\use_package mhchem 0
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Chapter
+Introduction
+\end_layout
+
+\begin_layout Standard
+Data acquisition is a key aspect of every experiment, since without it nothing
+ can be learned.
+ During the history of science, instrumentation and knowledge formed a feedback
+ loop, where better instruments have provided humans with better understanding
+ of natural fenomena which allows the develpment of more advanced instruments.
+ This relation is cleary visible on the development of electronics during
+ the past decades.
+ Long running physics experiments are naturally sensitive to these developments
+ and the design of their data acquisition systems must take this into account.
+ As these systems become ever more complex, the concept of CODAC emerges.
+ CODAC stands for Control, Data Access and Communication and can be considered
+ an extension of the CODAS (control and data acquisition system) as it treats
+ all systems that are part of an experiment (namely control of the experiment,
+ data collection, data access and plant security) as a whole.
+ Although te specific needs of an experiment must be taken into account
+ when designing a CODAC, there are several key features that should be taken
+ into acount.
+ This thesis uses the implementation of a CODAC for a specific experiment
+ as the starting point for a study on how to design a CODAC for modern,
+ large physicals experiments, taking into account not just their specific
+ needs but also a boarder view.
+\end_layout
+
+\begin_layout Section
+Fusion Research and Engineering
+\end_layout
+
+\begin_layout Standard
+Fusion is a nuclear reaction where light elements are merged (fused) into
+ a another, heavier, element.
+ Although any element can be fused this way, it typicaly involves hydrogen
+ and its isotopes, deuterium and tritium, being this the main reaction that
+ powers our Sun.
+ Since this reaction produces a great amount of energy, the main goal for
+ fusion research is to apply it to produce electricity, as an efficient
+ and clean alternative to existing power sources, namely fossil fules.
+ Of all the fusion reactions available the deuterium-tritium technology
+ is the most promissing: not only is the most energetic, it is also the
+ one that occurs at faster rate.
+ Besides, deuterium is abundant on ocean water, from where it can be easily
+ extracted and tritium, although not occuring naturaly on Earth, can be
+ obtained from Lithium which is a very common metal.
+ However this reaction also generates fast neutrons that activate the structures
+ of a fusion reactor, this being its biggest environmental issue.
+ These same neutrons, on the other hand, can be used to breed tritium from
+ lithium, meaning that there should be no need to handle tritium (which
+ is radioactive itself) outside of the fusion chamber.
+ 
+\end_layout
+
+\begin_layout Standard
+In order for fusion reactions to occur certain densities and temperatures
+ are required and for these to be fullfilled the elements must be on a confined
+ plasma state.
+ There are three ways to confine a plasma: gravitational, magnetic and inertial.
+ Gravitational confinement is the one responsible for energy production
+ in stars, so it is not viable on Earth.
+ Inertial confinement uses powerful lasers to compress fusion fuel pellets
+ during short periods of time.
+ Magnetic confinement uses the fact that ions and electrons follow magnetic
+ lines to keep the plasma inside a partial-vacuum chamber.
+ The most common magnetic configurations are the Tokamak and the Stellarator.
+ Both have toroidal shapes, their main difference being how a poloidal magnetic
+ field, necessary to stabilize the plasma, is generated: in a tokamak a
+ plasma current is induced by varying the magnetic flux on the central core
+ (like in a transformer); in a stellarator by specially shaped external
+ coils.
+ Until now, the tokamak is the most successful magnetic geometry and is
+ widely considered the best candidate for a commercial fusion power plant.
+\end_layout
+
+\begin_layout Section
+COMPASS
+\end_layout
+
+\begin_layout Standard
+Tokamak COMPASS (COMPact ASSembly) is installed in the Institute of Plasma
+ Physics (IPP) of the Academy of Sciences of the Czech Republic since 2006.
+ It was designed in the 1980s in the British Culham Science Centre to study
+ plasma physics in circular and D shaped plasmas, with the purpose to prepare
+ for ITER scenarios.
+ In fact, the relations between its dimensions are very similar to those
+ of ITER.
+ At the turn of the 21st century, the Culham Science Centre started working
+ with a new spherical tokamak, the Mega Ampere Spherical Tokamak (MAST),
+ and so operation of COMPASS was discontinued.
+ However, due to its relevance for the ITER project, it was offered to IPP
+ - Prague which had experience with small tokamaks.
+\end_layout
+
+\begin_layout Standard
+As before, the main objectives of COMPASS are related to ITER, specially:
+\end_layout
+
+\begin_layout Itemize
+study of H-mode physics (there are only two other operational tokamaks in
+ Europe capable of this regime);
+\end_layout
+
+\begin_layout Itemize
+MHD equilibrium and instabilities;
+\end_layout
+
+\begin_layout Itemize
+Plasma-wall interaction;
+\end_layout
+
+\begin_layout Itemize
+Physics of runaways and disruption;
+\end_layout
+
+\begin_layout Itemize
+Developments of advance diagnostic methods;
+\end_layout
+
+\begin_layout Section
+ISTTOK
+\end_layout
+
+\begin_layout Standard
+Tokamak ISTTOK (Instituto Superior Técnico TOKamak) is installed in Lisbon,
+ in the institute that gives it the name and is explored by IPFN.
+ It is a small tokamak with a circular cross-section, a poloidal graphite
+ limiter and an iron core transformer, that was built from the former TORTUR
+ tokamak, which was de-commissioned by the Association EURATOM/FOM in 1988.
+ The ISTTOK construction started, officially, on January 1st, 1990, date
+ on which the contract of association EURATOM/IST enter into force.
+ The operation of this experiment in an inductive regime started on February
+ 1991.
+ Its main objectives are:
+\end_layout
+
+\begin_layout Itemize
+Teach and train personnel (mainly university students) in physics, engineering
+ and technologies associated with nuclear fusion;
+\end_layout
+
+\begin_layout Itemize
+Development of new diagnostic techniques and to develop and test digital
+ instrumentation dedicated to control and data acquisition.
+\end_layout
+
+\begin_layout Standard
+Since 2012, thanks to fast electronics developed at IPFN and real-time control,
+ ISTTOK has been operating on AC discharges, where the direction of the
+ plasma current changes quickly enough to allow the pulse to be continued,
+ keeping a somewhat constant plasma density without saturating the iron
+ core.
+ This has allowed discharge duration to go from 25-40 ms up to more than
+ 0.5 s (although the typical discharge is around 200 ms).
+\end_layout
+
+\begin_layout Section
+Motivation
+\end_layout
+
+\begin_layout Standard
+With the installation of the COMPASS tokamak in Prague, it was necessary
+ to install a CODAC system for the experiment.
+ Over the years, new diagnostics and actuators were expected be installed
+ and thus required to be integrated on the CODAC.
+ The operation would be based on the novel ATCA control and acquisition
+ boards developed on IPFN (Instituto de Plasmas e Fusão Nuclear).
+ These possess advanced technical features, namely state-of-art FPGA for
+ signal processing, multi-Gigabit/s point-to point serial links for super-fast
+ data sharing across all the input channels and a sub nano-second synchronous
+ timing/event distribution network.
+ This system was similar to the one used on the ISTTOK tokamak in Lisbon.
+ The knowledge obtained during the design, installation and maintenace can
+ be extrapolated to other experiments, future and current, thus becoming
+ the basis for the work presented on this thesis.
+\end_layout
+
+\end_body
+\end_document

@@ -1,0 +1,23 @@
+- A. Neto, H. Fernandes, A. Duarte, B.B. Carvalho, J. Sousa, D.F. Valcárcel, M. Hron and C.A.F. Varandas, FireSignal—Data acquisition and control system software, Fusion Engineering and Design, 82 (2007), 1359-1364
+
+- R.C. Pereira, J. Sousa, A.M. Fernandes, F. Patrício, B. Carvalho, A. Neto, C.A.F. Varandas, G. Gorini, M. Tardocchi, D. Gin, A. Shevelev, ATCA data acquisition system for gamma-ray spectrometry, Fusion Engineering and Design, 83 (2008), 341-345
+
+- A. Neto, J. Sousa, B. Carvalho, H. Fernandes, R.C. Pereira, A.M. Fernandes, C. Varandas, G. Gorini, M. Tardocchi, D. Gin, A. Shevelev, K. Kneupner, JET-EFDA Contributors, The control and data acquisition software for the gamma-ray spectroscopy ATCA sub-systems of the JET-EP2 enhancements, Fusion Engineering and Design, 83 (2008), 346-349
+
+- D.F. Valcárcel, A. Neto, J. Sousa, B.B. Carvalho, H. Fernandes, J.C. Fortunato, A.S. Gouveia, A.J.N. Batista, A.G. Fernandes, M. Correia, T. Pereira, I.S. Carvalho, A.S. Duarte, C.A.F. Varandas, M. Hron, F. Janky, J. Písačka, An ATCA Embedded Data Acquisition and Control System for the Compass tokamak, Fusion Engineering and Design, 84 (2009), 1901-1904
+
+- A.S. Duarte, B. Santos, T. Pereira, B.B. Carvalho, H. Fernandes, A. Neto, F. Janky, P. Cahyna, J. Písačka, M. Hron, FireSignal application Node for subsystem control, Fusion Engineering and Design, 85 (2010), 496-499
+
+- D.F. Valcárcel, A.S. Duarte, A. Neto, I.S. Carvalho, B.B. Carvalho, H. Fernandes, J. Sousa, F. Sartori, F. Janky, P. Cahyna, M. Hron, R. Pánek, Real-Time Software for the COMPASS Tokamak Plasma Control, Fusion Engineering and Design, 85 (2010), 470-473
+
+- P.R. Carvalho, A. Duarte, T. Pereira, B. Carvalho, J. Sousa, H. Fernandes, C. Correia, B. Gonçalves, C.A.F. Varandas, EPICS IOC module development and implementation for the ISTTOK machine subsystem operation and control, Fusion Engineering and Design, 86, (2011), 1085-1090
+
+- D.F. Valcarcel, A. Barbalace, A. Neto, A.S. Duarte, D. Alves, B.B. Carvalho, P.J. Carvalho, J. Sousa, H. Fernandes, B. Goncalves, F. Sartori, G. Manduchi, EPICS as a MARTe Configuration Environment, IEEE Transactions on Nuclear Science, 58 (2011), 1472-1476
+
+- M. Hron, F. Janky, J. Pipek, J. Sousa, B.B. Carvalho, H. Fernandes, P. Vondracek, P. Cahyna, J. Urban, R. Paprok, O. Mikulín, M. Aftanas, R. Panek, J. Havlicek, J. Fortunato, A.J.N. Batista, B.A. Santos, A. Duarte, T. Pereira, D. Valcarcel, COMPASS Team, et al., Overview of the COMPASS CODAC system, 
+Fusion Engineering and Design, 89 (2014), 177-185
+
+- F. Janky, J. Havlicek, A.J.N. Batista, O. Kudlacek, J. Seidl, A.C. Neto, J. Pipek, M. Hron, O. Mikulin, A.S. Duarte, B.B. Carvalho, J. Stockel, R. Panek, Upgrade of the COMPASS tokamak real-time control system, Fusion Engineering and Design, 89 (2014), 186-194
+
+- I. Carvalho, P. Duarte, H. Fernandes, D. Valcárcel, P.J. Carvalho, C. Silva, A.S. Duarte, A. Neto, J. Sousa, A.J.N. Batista, T. Hekkert, B.B. Carvalho, ISTTOK real-time architecture, Fusion Engineering and Design, 89, (2014), 195-203
+

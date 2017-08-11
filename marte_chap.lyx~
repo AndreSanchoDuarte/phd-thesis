@@ -1,0 +1,446 @@
+#LyX 1.5.6 created this file. For more info see http://www.lyx.org/
+\lyxformat 276
+\begin_document
+\begin_header
+\textclass book
+\language english
+\inputencoding auto
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\paperfontsize default
+\spacing single
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\cite_engine basic
+\use_bibtopic false
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\author "" 
+\author "" 
+\end_header
+
+\begin_body
+
+\begin_layout Section
+MARTe - FireSignal Bridge
+\end_layout
+
+\begin_layout Standard
+When MARTe was introduced for real-time control in ISTTOK and COMPASS tokamaks,
+ it was necessary to integrate it with FireSignal.
+ This integration meant to allow MARTe to receive triggers, send data to
+ the main database and be configurable on the user interface of FireSignal.
+ It was decided that the node would use the standard HTTP server provided
+ with MARTe, since this would allow the node to fulfill the objectives without
+ having to interfere with MARTe core.
+ It was decided to program in Java in order to take advantage of its HTTP
+ and HTML tools.
+ 
+\end_layout
+
+\begin_layout Subsection
+State Machine
+\end_layout
+
+\begin_layout Standard
+MARTe has its own internal state machine.
+ The states can be cycled manually by the operator either on the console
+ interface or the HTML interface on a web browser.
+ This node completely automates this procedure: once the main event arrives,
+ it will cycle automatically through the states, following closely equivalent
+ states in FireSignal.
+ The states presented on the following tables are the ones used at JET,
+ that are also used at ISTTOK and Compass.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status collapsed
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="2">
+<features>
+<column alignment="center" valignment="top" leftline="true" width="0">
+<column alignment="center" valignment="top" leftline="true" rightline="true" width="0">
+<row topline="true" bottomline="true">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+MARTe
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+FireSignal
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row topline="true">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+idle
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+stopped
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row topline="true">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+waiting_for_pre
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+configured
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row topline="true">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+pulsing
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+running
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row topline="true" bottomline="true">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+post_pulse
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+running
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Caption
+
+\begin_layout Standard
+MARTe states and matching FireSignal states
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status collapsed
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="2">
+<features>
+<column alignment="center" valignment="top" leftline="true" width="0">
+<column alignment="center" valignment="top" leftline="true" rightline="true" width="0">
+<row topline="true" bottomline="true">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+MARTe
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+FireSignal
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row topline="true">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+pulse_setup_completed
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+configure
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row topline="true">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+pre
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+run
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row topline="true">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+ejp
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+N/A
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row topline="true" bottomline="true">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+collection_completed
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+stopping
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Caption
+
+\begin_layout Standard
+MARTe commands and matching FireSignal intermediate states
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Some FireSignal states are mapped to MARTe commands.
+ Although these are not really system states, they tell the operator that
+ the node has sent the related command to MARTe, but the current state hasn't
+ changed yet.
+ There is a thread that constatly monitors the MARTe state page and changes
+ the Node status if needed.
+ If necessary, the states can be changed by the operator on the MARTe interface
+ and the Node will acknowledge the change.
+ The system, however, needs to know when to issue the 
+\emph on
+ejp
+\emph default
+ command to finish the acquisition.
+ For this, an extra HTML page is required with the information if there
+ is plasma or not.
+\end_layout
+
+\begin_layout Subsection
+Configuration File Parser
+\end_layout
+
+\begin_layout Standard
+A FireSignal Node requires some information on XML files before being built.
+ Because not all the necessary information is available on the HTTP server
+ at start, it was necessary to get this from the configuration file.
+ BaseLib includes a C++ parser, but since it was decided to program the
+ node in Java, making a native parser from scratch was considered a better
+ option than using JNI.
+ 
+\end_layout
+
+\begin_layout Standard
+The parser is event-based sequencial access, meaning that while it parses
+ the file it will call methods (events) from a handler object when it finds
+ keywords.
+ Parsing events are sent in the order of the information on the document
+ itself.
+ Besides comments, it defines the following elements of a MARTe configuration
+ file:
+\end_layout
+
+\begin_layout Itemize
+single attributes: elements in the form 
+\emph on
+att = value
+\emph default
+.
+ They are defined with a single value, that can be a string or a numeric
+ value.
+\end_layout
+
+\begin_layout Itemize
+array attributes: elements in the form 
+\emph on
+att = {value1 value2 ...}
+\emph default
+.
+ Single values enclosed between 
+\emph on
+{...}
+\emph default
+.
+\end_layout
+
+\begin_layout Itemize
+blocks: elements in the form 
+\emph on
+block = { att = ...
+ }
+\emph default
+, with attributes and other blocks inside.
+\end_layout
+
+\begin_layout Subsection
+HTTP Communication
+\end_layout
+
+\begin_layout Standard
+For the communication between MARTe and FireSignal two solutions were available:
+ either developing a GAM implementing the functionalities of a FireSignal
+ Node or developing a Node with HTTP communications implemented.
+ Since the HTTP interface allows access to all configurations and data,
+ the only advantage to have a GAM would be to have it all integrated on
+ MARTe.
+ The HTTP approach offers several other advantages: it is possible to develop
+ the MARTe code without FireSignal, the Node is not required to be running
+ on the same machine as the real-time code and any existing MARTe configuration
+ file can be used.
+\end_layout
+
+\end_body
+\end_document

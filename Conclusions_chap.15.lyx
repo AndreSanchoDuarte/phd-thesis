@@ -1,0 +1,137 @@
+#LyX 1.5.6 created this file. For more info see http://www.lyx.org/
+\lyxformat 276
+\begin_document
+\begin_header
+\textclass book
+\language english
+\inputencoding auto
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\paperfontsize default
+\spacing single
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\cite_engine basic
+\use_bibtopic false
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\author "" 
+\author "" 
+\end_header
+
+\begin_body
+
+\begin_layout Chapter
+Achievements and Future Work
+\end_layout
+
+\begin_layout Section
+Achievements
+\end_layout
+
+\begin_layout Standard
+During my doctorate most of my work was done for COMPASS, with it being
+ adapted and reused for other projects namely ISTTOK.
+ It started with the installation of the first CODAC software, similar to
+ the existing setup on ISTTOK.
+ I designed and developed the FireSignal Node in Java connecting to MARTe,
+ which included a parser for the configuration language of MARTe.
+ This Node is working also in ISTTOK.
+ The parser by itself was later used also for the Fast Plant System for
+ ITER project, which used Java to connect a MARTe system with EPICS.
+ I also participated on the integration of the Reflectometry diagnostic
+ in COMPASS.
+ For this I adapted and debugged an existing C++ Node for the acquisition
+ boards, and also developed another node for configuring the wave launcher,
+ using telnet protocol (the default method of configuraing that specific
+ wave launcher).
+\end_layout
+
+\begin_layout Standard
+For the transition to CDB in COMPASS, I participated on the design phase
+ of the system and the way it was going to interact with FireSignal.
+ During the development stage, I developed the first version of the FireSignal
+ database controller for CDB and during the deployment I helped with the
+ Python code that converted existing data from the old format to the new
+ one.
+\end_layout
+
+\begin_layout Section
+Future Work
+\end_layout
+
+\begin_layout Standard
+The collaboration between IPFN and IPP continues, but currently COMPASS
+ has an autonomous CODAC team that has developed their own forks of IPFN
+ technology.
+\end_layout
+
+\begin_layout Standard
+Changes to FireSignal in ISTTOK are being considered, namely: 
+\end_layout
+
+\begin_layout Itemize
+Replacing the raw binary files with HDF5 files; 
+\end_layout
+
+\begin_layout Itemize
+Support for data compression; 
+\end_layout
+
+\begin_layout Itemize
+Support for signal previews (decimation); 
+\end_layout
+
+\begin_layout Itemize
+Using web technologies to create a more robust yet flexible user interface.
+ 
+\end_layout
+
+\begin_layout Standard
+If these are successful, it may be possible to also apply them to COMPASS.
+\end_layout
+
+\begin_layout Chapter
+Conclusions
+\end_layout
+
+\begin_layout Standard
+Using Java-based technology has its drawbacks: High memory usage (plotting
+ data) Java Web Start security has tightened (extra configuration required
+ to launch applications) The FireSignal/SDAS database lacks flexibility:
+ In some cases it makes more sense to store a time array Changes to nodes
+ may affect the retrieval of previously stored data The event paradigm is
+ sound, but having the pulse treated as a special event still makes sense
+ CDB addresses these issues.
+\end_layout
+
+\begin_layout Standard
+A single application providing all functionalities sounds good in theory,
+ but in practice has its issues: Becomes more prone to crashes and freezes
+ Too much information can overload the user Changing a component will inevitably
+ affect everything CORBA has proved to be a good solution for the interoperabili
+ty of different FireSignal modules However, the larger overhead means that
+ it is not the best solution for data transfer Thanks to the modular design
+ of FireSignal, the complexity of integrating different subsystems was reduced.
+\end_layout
+
+\end_body
+\end_document
