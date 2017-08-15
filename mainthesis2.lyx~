@@ -2208,24 +2208,6 @@ The installer for FireSignal originaly came with three database connector
  
 \end_layout
 
-\begin_layout Standard
-The database at ISTTOK is the version using PostgreSQL with raw binary files.
- The data is stored in a directory structure comprising: a Node directory
- with directories inside for each Hardware; inside these, there are directories
- named with a hash code for each acquisition day; finally, inside these
- there are files with data and configuration XMLs named using the channels
- unique identifiers and the timestamp for when the acquisition started.
- For longer acquisition cycles the same channel can be saved in different
- blocks, each identified by its unique start time.
- The PostgreSQL database stores the absolute starting time for each shot
- (the only event in ISTTOK up to now), the absolute starting and ending
- time for each channel and to which shot the are related, the XMLs describing
- each Hardware, and information regarding the users and the institutions
- they are from.
- Using the unique identifiers of the channels and the absolute start time
- the system automatically reconstructs the full path to the file.
-\end_layout
-
 \begin_layout Subsection
 Hardware Clients
 \end_layout
