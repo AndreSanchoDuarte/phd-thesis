@@ -2583,9 +2583,49 @@ key "key-urban-cdb,key-cdb-documentation"
  is the part of the CODAC of Compass that is responsible to find and retrieve
  data from the main database.
  Originaly Compass used an implementation of SDAS but due to perceived shortcomi
-ngs, namely the possibility of metadata to be overwritten which made old
- data unretrievable, a new solution was designed.
- The main features of CDB are:
+ngs a new solution was designed.
+ These shortcomings were:
+\end_layout
+
+\begin_layout Itemize
+If any changes were made to the Hardware XML configuration file, the version
+ stored in the database would be overwritten.
+ This would cause data previously acquired to appear corrupted or become
+ inaccessible;
+\end_layout
+
+\begin_layout Itemize
+Even though FireSignal allows a channel to be named according to the diagnostic
+ connecting there, there is no consistent way to keep track of what diagnostics
+ were connected before.
+ So it would not be easy for a user to access data from a diagnostic that
+ was connected to different channels in the past.
+ Because of this, in practice, channels are rarely named for their diagnostic;
+\end_layout
+
+\begin_layout Itemize
+Treating the start of the plasma (shot) as any other event in the experiment
+ was considered as adding an unnecessary and redundant abstraction layer,
+ for a pulsed plasma machine like Compass;
+\end_layout
+
+\begin_layout Itemize
+FireSignal (and SDAS) allows data to be stored in blocks, for non-contiguous
+ acquisition or variable acquisition rates.
+ However some diagnostics (p.e.
+ Reflectometry) would generate hundreds of files for a single plasma pulse
+ which can be problematic;
+\end_layout
+
+\begin_layout Itemize
+The design of FireSignal data flow contains a bottleneck because all data
+ must pass through the Central Server.
+ Compass was generating enough data each pulse for this to become an issue.
+ 
+\end_layout
+
+\begin_layout Standard
+So, with this in mind, CDB was designed with the following features in mind:
 \end_layout
 
 \begin_layout Itemize
@@ -2595,17 +2635,17 @@ Nothing stored can be overwritten; instead, revisions are possible as corrective
 
 \begin_layout Itemize
 These revisions are also used to store the information regarding diagnostics
- and the physical channles they're connected;
-\end_layout
-
-\begin_layout Itemize
-Shots (pulse numbers) are treated differently from other possible events
- (unlike SDAS);
+ and the physical channels they're connected;
 \end_layout
 
 \begin_layout Itemize
 A relational database is used to store metadata of the numerical data and
  also physical quantities names, units and scaling;
+\end_layout
+
+\begin_layout Itemize
+Shots (pulse numbers) are treated differently from other possible events
+ (unlike SDAS);
 \end_layout
 
 \begin_layout Itemize
