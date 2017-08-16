@@ -1,4 +1,4 @@
-#LyX 1.5.6 created this file. For more info see http://www.lyx.org/
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
 \lyxformat 276
 \begin_document
 \begin_header
@@ -30,14 +30,12 @@
 \secnumdepth 3
 \tocdepth 3
 \paragraph_separation indent
-\defskip medskip
 \quotes_language english
 \papercolumns 1
 \papersides 2
 \paperpagestyle default
 \tracking_changes false
 \output_changes false
-\author "" 
 \end_header
 
 \begin_body
@@ -490,8 +488,8 @@ status collapsed
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename Images/tok_and_stell_gb.gif
-	width 100line%
+    filename Images/tok_and_stell_gb.gif
+    width 100line%
 
 \end_inset
 
@@ -565,8 +563,8 @@ status collapsed
 
 \begin_layout Standard
 \begin_inset Graphics
-	filename Images/COMPASS_at_IPP_left.jpg
-	width 100line%
+    filename Images/COMPASS_at_IPP_left.jpg
+    width 100line%
 
 \end_inset
 
@@ -602,8 +600,8 @@ status collapsed
 
 \begin_layout Standard
 \begin_inset Graphics
-	filename Images/COMPASS_chamber.jpg
-	width 100line%
+    filename Images/COMPASS_chamber.jpg
+    width 100line%
 
 \end_inset
 
@@ -666,8 +664,8 @@ status collapsed
 \begin_inset Tabular
 <lyxtabular version="3" rows="10" columns="2">
 <features>
-<column alignment="center" valignment="top" leftline="true" width="0">
-<column alignment="center" valignment="top" leftline="true" rightline="true" width="0">
+<column alignment="center" valignment="top" leftline="true" rightline="false">
+<column alignment="center" valignment="top" leftline="true" rightline="true">
 <row topline="true" bottomline="true">
 <cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
@@ -688,7 +686,7 @@ Values
 \end_inset
 </cell>
 </row>
-<row topline="true">
+<row topline="true" bottomline="false">
 <cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
@@ -708,7 +706,7 @@ Major radius
 \end_inset
 </cell>
 </row>
-<row topline="true">
+<row topline="true" bottomline="false">
 <cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
@@ -728,7 +726,7 @@ Minor radius
 \end_inset
 </cell>
 </row>
-<row topline="true">
+<row topline="true" bottomline="false">
 <cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
@@ -748,7 +746,7 @@ Plasma Current (max)
 \end_inset
 </cell>
 </row>
-<row topline="true">
+<row topline="true" bottomline="false">
 <cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
@@ -768,7 +766,7 @@ Magnetic Field
 \end_inset
 </cell>
 </row>
-<row topline="true">
+<row topline="true" bottomline="false">
 <cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
@@ -812,7 +810,7 @@ Pa
 \end_inset
 </cell>
 </row>
-<row topline="true">
+<row topline="true" bottomline="false">
 <cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
@@ -832,7 +830,7 @@ Elongation
 \end_inset
 </cell>
 </row>
-<row topline="true">
+<row topline="true" bottomline="false">
 <cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
@@ -852,7 +850,7 @@ D, SND, elliptical, circular
 \end_inset
 </cell>
 </row>
-<row topline="true">
+<row topline="true" bottomline="false">
 <cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
@@ -1000,8 +998,8 @@ status collapsed
 
 \begin_layout Standard
 \begin_inset Graphics
-	filename Images/ISTTOK_09.jpg
-	width 100line%
+    filename Images/ISTTOK_09.jpg
+    width 100line%
 
 \end_inset
 
@@ -1039,8 +1037,8 @@ status collapsed
 \begin_inset Tabular
 <lyxtabular version="3" rows="7" columns="2">
 <features>
-<column alignment="center" valignment="top" leftline="true" width="0">
-<column alignment="center" valignment="top" leftline="true" rightline="true" width="0">
+<column alignment="center" valignment="top" leftline="true" rightline="false">
+<column alignment="center" valignment="top" leftline="true" rightline="true">
 <row topline="true" bottomline="true">
 <cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
@@ -1061,7 +1059,7 @@ Value
 \end_inset
 </cell>
 </row>
-<row topline="true">
+<row topline="true" bottomline="false">
 <cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
@@ -1081,7 +1079,7 @@ Minor radius
 \end_inset
 </cell>
 </row>
-<row topline="true">
+<row topline="true" bottomline="false">
 <cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
@@ -1101,7 +1099,7 @@ Major radius
 \end_inset
 </cell>
 </row>
-<row topline="true">
+<row topline="true" bottomline="false">
 <cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
@@ -1121,7 +1119,7 @@ Plasma current
 \end_inset
 </cell>
 </row>
-<row topline="true">
+<row topline="true" bottomline="false">
 <cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
@@ -1141,7 +1139,7 @@ Pulse length
 \end_inset
 </cell>
 </row>
-<row topline="true">
+<row topline="true" bottomline="false">
 <cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
@@ -1315,8 +1313,8 @@ status collapsed
 
 \begin_layout Standard
 \begin_inset Graphics
-	filename Images/jet_inside.jpg
-	width 100line%
+    filename Images/jet_inside.jpg
+    width 100line%
 
 \end_inset
 
@@ -1456,8 +1454,8 @@ status collapsed
 
 \begin_layout Standard
 \begin_inset Graphics
-	filename Images/number_computers_at_jet.eps
-	width 100line%
+    filename Images/number_computers_at_jet.eps
+    width 100line%
 
 \end_inset
 
@@ -1500,8 +1498,8 @@ status collapsed
 
 \begin_layout Standard
 \begin_inset Graphics
-	filename Images/jet_data_evolution.eps
-	width 100line%
+    filename Images/jet_data_evolution.eps
+    width 100line%
 
 \end_inset
 
@@ -1571,8 +1569,8 @@ status collapsed
 
 \begin_layout Standard
 \begin_inset Graphics
-	filename Images/Wendelstein7-X_Torushall-2011.jpg
-	width 100line%
+    filename Images/Wendelstein7-X_Torushall-2011.jpg
+    width 100line%
 
 \end_inset
 
@@ -1744,8 +1742,8 @@ status collapsed
 
 \begin_layout Standard
 \begin_inset Graphics
-	filename Images/nif-1209-18050.jpg
-	width 100line%
+    filename Images/nif-1209-18050.jpg
+    width 100line%
 
 \end_inset
 
@@ -1858,8 +1856,8 @@ status collapsed
 
 \begin_layout Standard
 \begin_inset Graphics
-	filename Images/alice_detector.jpg
-	width 100line%
+    filename Images/alice_detector.jpg
+    width 100line%
 
 \end_inset
 
@@ -2077,8 +2075,8 @@ status collapsed
 
 \begin_layout Standard
 \begin_inset Graphics
-	filename Images/fsignal1.png
-	width 100line%
+    filename Images/fsignal1.png
+    width 100line%
 
 \end_inset
 
@@ -2145,6 +2143,24 @@ The installer for FireSignal originaly came with three database connector
  
 \end_layout
 
+\begin_layout Standard
+The database at ISTTOK is the version using PostgreSQL with raw binary files.
+ The data is stored in a directory structure comprising: a Node directory
+ with directories inside for each Hardware; inside these, there are directories
+ named with a hash code for each acquisition day; finally, inside these
+ there are files with data and configuration XMLs named using the channels
+ unique identifiers and the timestamp for when the acquisition started.
+ For longer acquisition cycles the same channel can be saved in different
+ blocks, each identified by its unique start time.
+ The PostgreSQL database stores the absolute starting time for each shot
+ (the only event in ISTTOK up to now), the absolute starting and ending
+ time for each channel and to which shot the are related, the XMLs describing
+ each Hardware, and information regarding the users and the institutions
+ they are from.
+ Using the unique identifiers of the channels and the absolute start time
+ the system automatically reconstructs the full path to the file.
+\end_layout
+
 \begin_layout Subsection
 Hardware Clients
 \end_layout
@@ -2186,8 +2202,8 @@ status collapsed
 
 \begin_layout Standard
 \begin_inset Graphics
-	filename Images/fsignal2.png
-	width 100line%
+    filename Images/fsignal2.png
+    width 100line%
 
 \end_inset
 
@@ -2302,8 +2318,8 @@ status collapsed
 
 \begin_layout Standard
 \begin_inset Graphics
-	filename Images/CapturaEcra-FireSignal_en.png
-	width 100line%
+    filename Images/CapturaEcra-FireSignal_en.png
+    width 100line%
 
 \end_inset
 
@@ -2496,9 +2512,49 @@ key "key-urban-cdb,key-cdb-documentation"
  is the part of the CODAC of Compass that is responsible to find and retrieve
  data from the main database.
  Originaly Compass used an implementation of SDAS but due to perceived shortcomi
-ngs, namely the possibility of metadata to be overwritten which made old
- data unretrievable, a new solution was designed.
- The main features of CDB are:
+ngs a new solution was designed.
+ These shortcomings were:
+\end_layout
+
+\begin_layout Itemize
+If any changes were made to the Hardware XML configuration file, the version
+ stored in the database would be overwritten.
+ This would cause data previously acquired to appear corrupted or become
+ inaccessible;
+\end_layout
+
+\begin_layout Itemize
+Even though FireSignal allows a channel to be named according to the diagnostic
+ connecting there, there is no consistent way to keep track of what diagnostics
+ were connected before.
+ So it would not be easy for a user to access data from a diagnostic that
+ was connected to different channels in the past.
+ Because of this, in practice, channels are rarely named for their diagnostic;
+\end_layout
+
+\begin_layout Itemize
+Treating the start of the plasma (shot) as any other event in the experiment
+ was considered as adding an unnecessary and redundant abstraction layer,
+ for a pulsed plasma machine like Compass;
+\end_layout
+
+\begin_layout Itemize
+FireSignal (and SDAS) allows data to be stored in blocks, for non-contiguous
+ acquisition or variable acquisition rates.
+ However some diagnostics (p.e.
+ Reflectometry) would generate hundreds of files for a single plasma pulse
+ which can be problematic;
+\end_layout
+
+\begin_layout Itemize
+The design of FireSignal data flow contains a bottleneck because all data
+ must pass through the Central Server.
+ Compass was generating enough data each pulse for this to become an issue.
+ 
+\end_layout
+
+\begin_layout Standard
+So, with this in mind, CDB was designed with the following features in mind:
 \end_layout
 
 \begin_layout Itemize
@@ -2508,17 +2564,17 @@ Nothing stored can be overwritten; instead, revisions are possible as corrective
 
 \begin_layout Itemize
 These revisions are also used to store the information regarding diagnostics
- and the physical channles they're connected;
-\end_layout
-
-\begin_layout Itemize
-Shots (pulse numbers) are treated differently from other possible events
- (unlike SDAS);
+ and the physical channels they're connected;
 \end_layout
 
 \begin_layout Itemize
 A relational database is used to store metadata of the numerical data and
  also physical quantities names, units and scaling;
+\end_layout
+
+\begin_layout Itemize
+Shots (pulse numbers) are treated differently from other possible events
+ (unlike SDAS);
 \end_layout
 
 \begin_layout Itemize
@@ -2554,8 +2610,8 @@ status collapsed
 
 \begin_layout Standard
 \begin_inset Graphics
-	filename Images/CDBdb.png
-	width 100text%
+    filename Images/CDBdb.png
+    width 100text%
 
 \end_inset
 
@@ -2696,8 +2752,8 @@ status collapsed
 \begin_inset Tabular
 <lyxtabular version="3" rows="5" columns="2">
 <features>
-<column alignment="center" valignment="top" leftline="true" width="0">
-<column alignment="center" valignment="top" leftline="true" rightline="true" width="0">
+<column alignment="center" valignment="top" leftline="true" rightline="false">
+<column alignment="center" valignment="top" leftline="true" rightline="true">
 <row topline="true" bottomline="true">
 <cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
@@ -2718,7 +2774,7 @@ FireSignal
 \end_inset
 </cell>
 </row>
-<row topline="true">
+<row topline="true" bottomline="false">
 <cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
@@ -2738,7 +2794,7 @@ stopped
 \end_inset
 </cell>
 </row>
-<row topline="true">
+<row topline="true" bottomline="false">
 <cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
@@ -2758,7 +2814,7 @@ configured
 \end_inset
 </cell>
 </row>
-<row topline="true">
+<row topline="true" bottomline="false">
 <cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
@@ -2832,8 +2888,8 @@ status collapsed
 \begin_inset Tabular
 <lyxtabular version="3" rows="5" columns="2">
 <features>
-<column alignment="center" valignment="top" leftline="true" width="0">
-<column alignment="center" valignment="top" leftline="true" rightline="true" width="0">
+<column alignment="center" valignment="top" leftline="true" rightline="false">
+<column alignment="center" valignment="top" leftline="true" rightline="true">
 <row topline="true" bottomline="true">
 <cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
@@ -2854,7 +2910,7 @@ FireSignal
 \end_inset
 </cell>
 </row>
-<row topline="true">
+<row topline="true" bottomline="false">
 <cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
@@ -2874,7 +2930,7 @@ configure
 \end_inset
 </cell>
 </row>
-<row topline="true">
+<row topline="true" bottomline="false">
 <cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
@@ -2894,7 +2950,7 @@ run
 \end_inset
 </cell>
 </row>
-<row topline="true">
+<row topline="true" bottomline="false">
 <cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
@@ -3059,8 +3115,8 @@ status collapsed
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename Images/marte-firesignal.png
-	width 100line%
+    filename Images/marte-firesignal.png
+    width 100line%
 
 \end_inset
 
@@ -3213,11 +3269,11 @@ status collapsed
 \begin_inset Tabular
 <lyxtabular version="3" rows="10" columns="5">
 <features>
-<column alignment="center" valignment="middle" leftline="true" width="0">
-<column alignment="center" valignment="middle" leftline="true" width="25text%">
-<column alignment="center" valignment="middle" leftline="true" width="22text%">
-<column alignment="center" valignment="middle" leftline="true" width="22text%">
-<column alignment="center" valignment="middle" leftline="true" rightline="true" width="15text%">
+<column alignment="center" valignment="middle" leftline="true" rightline="false">
+<column alignment="center" valignment="middle" width="25text%" leftline="true" rightline="false">
+<column alignment="center" valignment="middle" width="22text%" leftline="true" rightline="false">
+<column alignment="center" valignment="middle" width="22text%" leftline="true" rightline="false">
+<column alignment="center" valignment="middle" width="15text%" leftline="true" rightline="true">
 <row topline="true" bottomline="true">
 <cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
@@ -3265,7 +3321,7 @@ Number of channels
 \end_inset
 </cell>
 </row>
-<row topline="true">
+<row topline="true" bottomline="false">
 <cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
@@ -3312,7 +3368,7 @@ Number of channels
 \end_inset
 </cell>
 </row>
-<row topline="true">
+<row topline="true" bottomline="false">
 <cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
@@ -3359,7 +3415,7 @@ Number of channels
 \end_inset
 </cell>
 </row>
-<row topline="true">
+<row topline="true" bottomline="false">
 <cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
@@ -3406,7 +3462,7 @@ Number of channels
 \end_inset
 </cell>
 </row>
-<row topline="true">
+<row topline="true" bottomline="false">
 <cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
@@ -3453,7 +3509,7 @@ Number of channels
 \end_inset
 </cell>
 </row>
-<row topline="true">
+<row topline="true" bottomline="false">
 <cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
@@ -3500,7 +3556,7 @@ Number of channels
 \end_inset
 </cell>
 </row>
-<row topline="true">
+<row topline="true" bottomline="false">
 <cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
@@ -3547,7 +3603,7 @@ Number of channels
 \end_inset
 </cell>
 </row>
-<row topline="true">
+<row topline="true" bottomline="false">
 <cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
@@ -3594,7 +3650,7 @@ Number of channels
 \end_inset
 </cell>
 </row>
-<row topline="true">
+<row topline="true" bottomline="false">
 <cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
@@ -3758,8 +3814,8 @@ status collapsed
 
 \begin_layout Standard
 \begin_inset Graphics
-	filename Images/data_evolution_isttok.png
-	width 100col%
+    filename Images/data_evolution_isttok.png
+    width 100col%
 
 \end_inset
 
@@ -4011,15 +4067,15 @@ status collapsed
 
 \begin_layout Standard
 \begin_inset Graphics
-	filename Images/tree_topology.eps
-	width 40col%
+    filename Images/tree_topology.eps
+    width 40col%
 
 \end_inset
 
  
 \begin_inset Graphics
-	filename Images/partial_mesh.eps
-	width 50col%
+    filename Images/partial_mesh.eps
+    width 50col%
 
 \end_inset
 
@@ -4164,14 +4220,14 @@ status collapsed
 \begin_inset Tabular
 <lyxtabular version="3" rows="8" columns="7">
 <features>
-<column alignment="center" valignment="top" leftline="true" width="0">
-<column alignment="center" valignment="top" leftline="true" width="0">
-<column alignment="center" valignment="top" leftline="true" width="0">
-<column alignment="center" valignment="top" leftline="true" width="0">
-<column alignment="center" valignment="top" leftline="true" width="0">
-<column alignment="center" valignment="top" leftline="true" width="0">
-<column alignment="center" valignment="top" leftline="true" rightline="true" width="0">
-<row topline="true">
+<column alignment="center" valignment="top" leftline="true" rightline="false">
+<column alignment="center" valignment="top" leftline="true" rightline="false">
+<column alignment="center" valignment="top" leftline="true" rightline="false">
+<column alignment="center" valignment="top" leftline="true" rightline="false">
+<column alignment="center" valignment="top" leftline="true" rightline="false">
+<column alignment="center" valignment="top" leftline="true" rightline="false">
+<column alignment="center" valignment="top" leftline="true" rightline="true">
+<row topline="true" bottomline="false">
 <cell multicolumn="1" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
@@ -4301,7 +4357,7 @@ time
 \end_inset
 </cell>
 </row>
-<row topline="true">
+<row topline="true" bottomline="false">
 <cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
@@ -4366,7 +4422,7 @@ ATCA Board 1
 \end_inset
 </cell>
 </row>
-<row topline="true">
+<row topline="true" bottomline="false">
 <cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
@@ -4434,7 +4490,7 @@ ATCA Board 2
 \end_inset
 </cell>
 </row>
-<row topline="true">
+<row topline="true" bottomline="false">
 <cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
@@ -4502,7 +4558,7 @@ MARTe
 \end_inset
 </cell>
 </row>
-<row topline="true">
+<row topline="true" bottomline="false">
 <cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
@@ -4567,7 +4623,7 @@ ATCA Board 1
 \end_inset
 </cell>
 </row>
-<row topline="true">
+<row topline="true" bottomline="false">
 <cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
