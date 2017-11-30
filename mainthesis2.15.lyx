@@ -1,4 +1,4 @@
-#LyX 2.1 created this file. For more info see http://www.lyx.org/
+#LyX 1.5.6 created this file. For more info see http://www.lyx.org/
 \lyxformat 276
 \begin_document
 \begin_header
@@ -30,12 +30,15 @@
 \secnumdepth 3
 \tocdepth 3
 \paragraph_separation indent
+\defskip medskip
 \quotes_language english
 \papercolumns 1
 \papersides 2
 \paperpagestyle default
 \tracking_changes false
 \output_changes false
+\author "" 
+\author "" 
 \end_header
 
 \begin_body
@@ -385,9 +388,10 @@ Introduction
 \begin_layout Standard
 Data acquisition is a key aspect of every experiment, since without it nothing
  can be learned.
- During the history of science, instrumentation and knowledge formed a feedback
- loop, where better instruments have provided humans with better understanding
- of natural fenomena which allows the develpment of more advanced instruments.
+ During the history of science, instrumentation and knowledge formed a positive
+ feedback loop, where better instruments have provided humans with better
+ understanding of natural fenomena which allows the develpment of more advanced
+ instruments.
  This relation is cleary visible on the development of electronics during
  the past decades.
  Long running physics experiments are naturally sensitive to these developments
@@ -488,8 +492,8 @@ status collapsed
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-    filename Images/tok_and_stell_gb.gif
-    width 100line%
+	filename Images/tok_and_stell_gb.gif
+	width 100line%
 
 \end_inset
 
@@ -563,8 +567,8 @@ status collapsed
 
 \begin_layout Standard
 \begin_inset Graphics
-    filename Images/COMPASS_at_IPP_left.jpg
-    width 100line%
+	filename Images/COMPASS_at_IPP_left.jpg
+	width 100line%
 
 \end_inset
 
@@ -600,8 +604,8 @@ status collapsed
 
 \begin_layout Standard
 \begin_inset Graphics
-    filename Images/COMPASS_chamber.jpg
-    width 100line%
+	filename Images/COMPASS_chamber.jpg
+	width 100line%
 
 \end_inset
 
@@ -664,8 +668,8 @@ status collapsed
 \begin_inset Tabular
 <lyxtabular version="3" rows="10" columns="2">
 <features>
-<column alignment="center" valignment="top" leftline="true" rightline="false">
-<column alignment="center" valignment="top" leftline="true" rightline="true">
+<column alignment="center" valignment="top" leftline="true" width="0">
+<column alignment="center" valignment="top" leftline="true" rightline="true" width="0">
 <row topline="true" bottomline="true">
 <cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
@@ -686,7 +690,7 @@ Values
 \end_inset
 </cell>
 </row>
-<row topline="true" bottomline="false">
+<row topline="true">
 <cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
@@ -706,7 +710,7 @@ Major radius
 \end_inset
 </cell>
 </row>
-<row topline="true" bottomline="false">
+<row topline="true">
 <cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
@@ -726,7 +730,7 @@ Minor radius
 \end_inset
 </cell>
 </row>
-<row topline="true" bottomline="false">
+<row topline="true">
 <cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
@@ -746,7 +750,7 @@ Plasma Current (max)
 \end_inset
 </cell>
 </row>
-<row topline="true" bottomline="false">
+<row topline="true">
 <cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
@@ -766,7 +770,7 @@ Magnetic Field
 \end_inset
 </cell>
 </row>
-<row topline="true" bottomline="false">
+<row topline="true">
 <cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
@@ -810,7 +814,7 @@ Pa
 \end_inset
 </cell>
 </row>
-<row topline="true" bottomline="false">
+<row topline="true">
 <cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
@@ -830,7 +834,7 @@ Elongation
 \end_inset
 </cell>
 </row>
-<row topline="true" bottomline="false">
+<row topline="true">
 <cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
@@ -850,7 +854,7 @@ D, SND, elliptical, circular
 \end_inset
 </cell>
 </row>
-<row topline="true" bottomline="false">
+<row topline="true">
 <cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
@@ -987,7 +991,7 @@ key "key-ivo-isttok-ac-discharges,key-ivo-tese-phd"
  the pulse to be continued, keeping a somewhat constant plasma density without
  saturating the iron core.
  This has allowed discharge duration to go from 25-40 ms up to almost 1
- s (although the typical discharge is around 200 ms).
+ s (with the typical discharge lasting around 200 ms).
 \end_layout
 
 \begin_layout Standard
@@ -998,8 +1002,8 @@ status collapsed
 
 \begin_layout Standard
 \begin_inset Graphics
-    filename Images/ISTTOK_09.jpg
-    width 100line%
+	filename Images/ISTTOK_09.jpg
+	width 100line%
 
 \end_inset
 
@@ -1037,8 +1041,8 @@ status collapsed
 \begin_inset Tabular
 <lyxtabular version="3" rows="7" columns="2">
 <features>
-<column alignment="center" valignment="top" leftline="true" rightline="false">
-<column alignment="center" valignment="top" leftline="true" rightline="true">
+<column alignment="center" valignment="top" leftline="true" width="0">
+<column alignment="center" valignment="top" leftline="true" rightline="true" width="0">
 <row topline="true" bottomline="true">
 <cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
@@ -1059,7 +1063,7 @@ Value
 \end_inset
 </cell>
 </row>
-<row topline="true" bottomline="false">
+<row topline="true">
 <cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
@@ -1079,7 +1083,7 @@ Minor radius
 \end_inset
 </cell>
 </row>
-<row topline="true" bottomline="false">
+<row topline="true">
 <cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
@@ -1099,7 +1103,7 @@ Major radius
 \end_inset
 </cell>
 </row>
-<row topline="true" bottomline="false">
+<row topline="true">
 <cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
@@ -1119,7 +1123,7 @@ Plasma current
 \end_inset
 </cell>
 </row>
-<row topline="true" bottomline="false">
+<row topline="true">
 <cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
@@ -1139,7 +1143,7 @@ Pulse length
 \end_inset
 </cell>
 </row>
-<row topline="true" bottomline="false">
+<row topline="true">
 <cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
@@ -1313,8 +1317,8 @@ status collapsed
 
 \begin_layout Standard
 \begin_inset Graphics
-    filename Images/jet_inside.jpg
-    width 100line%
+	filename Images/jet_inside.jpg
+	width 100line%
 
 \end_inset
 
@@ -1454,8 +1458,8 @@ status collapsed
 
 \begin_layout Standard
 \begin_inset Graphics
-    filename Images/number_computers_at_jet.eps
-    width 100line%
+	filename Images/number_computers_at_jet.eps
+	width 100line%
 
 \end_inset
 
@@ -1498,8 +1502,8 @@ status collapsed
 
 \begin_layout Standard
 \begin_inset Graphics
-    filename Images/jet_data_evolution.eps
-    width 100line%
+	filename Images/jet_data_evolution.eps
+	width 100line%
 
 \end_inset
 
@@ -1569,8 +1573,8 @@ status collapsed
 
 \begin_layout Standard
 \begin_inset Graphics
-    filename Images/Wendelstein7-X_Torushall-2011.jpg
-    width 100line%
+	filename Images/Wendelstein7-X_Torushall-2011.jpg
+	width 100line%
 
 \end_inset
 
@@ -1742,8 +1746,8 @@ status collapsed
 
 \begin_layout Standard
 \begin_inset Graphics
-    filename Images/nif-1209-18050.jpg
-    width 100line%
+	filename Images/nif-1209-18050.jpg
+	width 100line%
 
 \end_inset
 
@@ -1856,8 +1860,8 @@ status collapsed
 
 \begin_layout Standard
 \begin_inset Graphics
-    filename Images/alice_detector.jpg
-    width 100line%
+	filename Images/alice_detector.jpg
+	width 100line%
 
 \end_inset
 
@@ -1905,7 +1909,7 @@ The Data Acquisition system for ALICE (DAQ) was designed and implemented
  to store the data and of the computing resources needed to analyze them.
  At the beggining an estimate of 1.25 GBytes/s was accepted as a good balance
  regarding these constraints, but later the CERN management agreed on providing
- the maximum bandiwth allowed by the Central Data Recording facility.
+ the maximum bandwith allowed by the Central Data Recording facility.
  
 \end_layout
 
@@ -2075,8 +2079,8 @@ status collapsed
 
 \begin_layout Standard
 \begin_inset Graphics
-    filename Images/fsignal1.png
-    width 100line%
+	filename Images/fsignal1.png
+	width 100line%
 
 \end_inset
 
@@ -2202,8 +2206,8 @@ status collapsed
 
 \begin_layout Standard
 \begin_inset Graphics
-    filename Images/fsignal2.png
-    width 100line%
+	filename Images/fsignal2.png
+	width 100line%
 
 \end_inset
 
@@ -2277,7 +2281,7 @@ The user client is a standalone application, developed in Java and deployed
  Besides configuration, it also allows the supervision of the states of
  each Node and Hardware, it allows remote participation, it includes a data
  viewer and it also has the possibility of performing data analysis using
- an external tool, but this feature is not currently implemented.
+ external tools,a feature which is currently not implemented.
  The data viewer only supports one dimensional data, but it can be extended
  with plugins to show more complex data, accordind to the mime-type.
 \end_layout
@@ -2285,9 +2289,14 @@ The user client is a standalone application, developed in Java and deployed
 \begin_layout Standard
 Users can connect to the system anywere in the world, given that they are
  registered.
- There is a basic chat room (powered by Jabber) and users are also able
- to send data references that they find relevant to the discussion to each
- other.
+ There is a basic chat room (using XMPP 
+\begin_inset LatexCommand cite
+key "key-xmpp-core"
+
+\end_inset
+
+) and users are also able to send data references that they find relevant
+ to the discussion to each other.
  FireSignal recognizes three roles:
 \end_layout
 
@@ -2318,8 +2327,8 @@ status collapsed
 
 \begin_layout Standard
 \begin_inset Graphics
-    filename Images/CapturaEcra-FireSignal_en.png
-    width 100line%
+	filename Images/CapturaEcra-FireSignal_en.png
+	width 100line%
 
 \end_inset
 
@@ -2547,7 +2556,7 @@ FireSignal (and SDAS) allows data to be stored in blocks, for non-contiguous
 \end_layout
 
 \begin_layout Itemize
-The design of FireSignal data flow contains a bottleneck because all data
+The design of FireSignal data flow contains a bottleneck since all data
  must pass through the Central Server.
  Compass was generating enough data each pulse for this to become an issue.
  
@@ -2610,8 +2619,8 @@ status collapsed
 
 \begin_layout Standard
 \begin_inset Graphics
-    filename Images/CDBdb.png
-    width 100text%
+	filename Images/CDBdb.png
+	width 100text%
 
 \end_inset
 
@@ -2677,9 +2686,10 @@ key "key-jep-homepage"
 \end_inset
 
  was used as it was more straightforward than Jython, however Jython was
- easier to install and it was also being used for the Java API bridge.
+ easier to install and it was already being used for the Java API bridge.
  Since it didn't make sense to use two different tools to perform what was
- basicaly the same task, Jython replaced eventually JEP.
+ basicaly the same task (linking Python and Java), Jython eventually replaced
+ JEP.
  The database controller acts like a regular FireSignal one but with some
  extra steps:
 \end_layout
@@ -2690,7 +2700,7 @@ Because the two relational databases are being used in parallel, the controller
 \end_layout
 
 \begin_layout Enumerate
-Following CDB procedure, a request is made for a new signal ID;
+Following the CDB procedure, a request is made for a new signal ID;
 \end_layout
 
 \begin_layout Enumerate
@@ -2704,6 +2714,10 @@ Meta-data is stored on CDB relational database (MySQL).
 
 \begin_layout Chapter
 Subsystem Integration
+\end_layout
+
+\begin_layout Standard
+
 \end_layout
 
 \begin_layout Section
@@ -2752,8 +2766,8 @@ status collapsed
 \begin_inset Tabular
 <lyxtabular version="3" rows="5" columns="2">
 <features>
-<column alignment="center" valignment="top" leftline="true" rightline="false">
-<column alignment="center" valignment="top" leftline="true" rightline="true">
+<column alignment="center" valignment="top" leftline="true" width="0">
+<column alignment="center" valignment="top" leftline="true" rightline="true" width="0">
 <row topline="true" bottomline="true">
 <cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
@@ -2774,7 +2788,7 @@ FireSignal
 \end_inset
 </cell>
 </row>
-<row topline="true" bottomline="false">
+<row topline="true">
 <cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
@@ -2794,7 +2808,7 @@ stopped
 \end_inset
 </cell>
 </row>
-<row topline="true" bottomline="false">
+<row topline="true">
 <cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
@@ -2814,7 +2828,7 @@ configured
 \end_inset
 </cell>
 </row>
-<row topline="true" bottomline="false">
+<row topline="true">
 <cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
@@ -2888,8 +2902,8 @@ status collapsed
 \begin_inset Tabular
 <lyxtabular version="3" rows="5" columns="2">
 <features>
-<column alignment="center" valignment="top" leftline="true" rightline="false">
-<column alignment="center" valignment="top" leftline="true" rightline="true">
+<column alignment="center" valignment="top" leftline="true" width="0">
+<column alignment="center" valignment="top" leftline="true" rightline="true" width="0">
 <row topline="true" bottomline="true">
 <cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
@@ -2910,7 +2924,7 @@ FireSignal
 \end_inset
 </cell>
 </row>
-<row topline="true" bottomline="false">
+<row topline="true">
 <cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
@@ -2930,7 +2944,7 @@ configure
 \end_inset
 </cell>
 </row>
-<row topline="true" bottomline="false">
+<row topline="true">
 <cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
@@ -2950,7 +2964,7 @@ run
 \end_inset
 </cell>
 </row>
-<row topline="true" bottomline="false">
+<row topline="true">
 <cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
@@ -3019,7 +3033,7 @@ Some FireSignal states are mapped to MARTe commands.
  Although these are not really system states, they tell the operator that
  the node has sent the related command to MARTe, but the current state hasn't
  changed yet.
- There is a thread that constately monitors the MARTe state page and changes
+ There is a thread that constantely monitors the MARTe state page and changes
  the Node status if needed.
  If necessary, the states can be changed by the operator on the MARTe interface
  and the Node will acknowledge the change.
@@ -3028,8 +3042,8 @@ Some FireSignal states are mapped to MARTe commands.
 ejp
 \emph default
  command to finish the acquisition.
- For this, an extra HTML page is required with the information if there
- is plasma or not.
+ For this, an extra HTML page on the MARTe is required with the information
+ if there is plasma or not.
 \end_layout
 
 \begin_layout Subsection
@@ -3037,7 +3051,8 @@ Configuration File Parser
 \end_layout
 
 \begin_layout Standard
-A FireSignal Node requires some information on XML files before being built.
+A FireSignal Node requires some information on XML files before connecting
+ to the Central Server.
  Because not all the necessary information is available on the HTTP server
  at start, it was necessary to get this from the configuration file.
  BaseLib includes a C++ parser, but since it was decided to program the
@@ -3115,8 +3130,8 @@ status collapsed
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-    filename Images/marte-firesignal.png
-    width 100line%
+	filename Images/marte-firesignal.png
+	width 100line%
 
 \end_inset
 
@@ -3211,7 +3226,7 @@ On board memory size
 \end_layout
 
 \begin_layout Itemize
-DMA byte size
+DMA (Direct Memory Access) byte size
 \end_layout
 
 \begin_layout Standard
@@ -3229,7 +3244,7 @@ Acquired data is transfered to the node as a signed 32 bit integer array,
 \end_layout
 
 \begin_layout Subsection
-16-bit Node
+16-bit conversion
 \begin_inset LatexCommand label
 name "sub:16-bit-Node"
 
@@ -3269,11 +3284,11 @@ status collapsed
 \begin_inset Tabular
 <lyxtabular version="3" rows="10" columns="5">
 <features>
-<column alignment="center" valignment="middle" leftline="true" rightline="false">
-<column alignment="center" valignment="middle" width="25text%" leftline="true" rightline="false">
-<column alignment="center" valignment="middle" width="22text%" leftline="true" rightline="false">
-<column alignment="center" valignment="middle" width="22text%" leftline="true" rightline="false">
-<column alignment="center" valignment="middle" width="15text%" leftline="true" rightline="true">
+<column alignment="center" valignment="middle" leftline="true" width="0">
+<column alignment="center" valignment="middle" leftline="true" width="25text%">
+<column alignment="center" valignment="middle" leftline="true" width="22text%">
+<column alignment="center" valignment="middle" leftline="true" width="22text%">
+<column alignment="center" valignment="middle" leftline="true" rightline="true" width="15text%">
 <row topline="true" bottomline="true">
 <cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
@@ -3321,7 +3336,7 @@ Number of channels
 \end_inset
 </cell>
 </row>
-<row topline="true" bottomline="false">
+<row topline="true">
 <cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
@@ -3368,7 +3383,7 @@ Number of channels
 \end_inset
 </cell>
 </row>
-<row topline="true" bottomline="false">
+<row topline="true">
 <cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
@@ -3415,7 +3430,7 @@ Number of channels
 \end_inset
 </cell>
 </row>
-<row topline="true" bottomline="false">
+<row topline="true">
 <cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
@@ -3462,7 +3477,7 @@ Number of channels
 \end_inset
 </cell>
 </row>
-<row topline="true" bottomline="false">
+<row topline="true">
 <cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
@@ -3509,7 +3524,7 @@ Number of channels
 \end_inset
 </cell>
 </row>
-<row topline="true" bottomline="false">
+<row topline="true">
 <cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
@@ -3556,7 +3571,7 @@ Number of channels
 \end_inset
 </cell>
 </row>
-<row topline="true" bottomline="false">
+<row topline="true">
 <cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
@@ -3603,7 +3618,7 @@ Number of channels
 \end_inset
 </cell>
 </row>
-<row topline="true" bottomline="false">
+<row topline="true">
 <cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
@@ -3650,7 +3665,7 @@ Number of channels
 \end_inset
 </cell>
 </row>
-<row topline="true" bottomline="false">
+<row topline="true">
 <cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
@@ -3814,8 +3829,8 @@ status collapsed
 
 \begin_layout Standard
 \begin_inset Graphics
-    filename Images/data_evolution_isttok.png
-    width 100col%
+	filename Images/data_evolution_isttok.png
+	width 100col%
 
 \end_inset
 
@@ -3931,7 +3946,8 @@ Future CODAC Design
 
 \begin_layout Standard
 As we have seen throughout this thesis, CODACs for large, long duration
- experiments face similar challenges.
+ experiments face similar challenges, namely the constant need to integrate
+ new diagnostics, actuators and to addapt to new technologies.
  Many of these were experienced during the work at ISTTOK and COMPASS tokamaks.
  This chapter discusses how these challenges should be tackled on future
  designs.
@@ -4067,15 +4083,15 @@ status collapsed
 
 \begin_layout Standard
 \begin_inset Graphics
-    filename Images/tree_topology.eps
-    width 40col%
+	filename Images/tree_topology.eps
+	width 40col%
 
 \end_inset
 
  
 \begin_inset Graphics
-    filename Images/partial_mesh.eps
-    width 50col%
+	filename Images/partial_mesh.eps
+	width 50col%
 
 \end_inset
 
@@ -4220,14 +4236,14 @@ status collapsed
 \begin_inset Tabular
 <lyxtabular version="3" rows="8" columns="7">
 <features>
-<column alignment="center" valignment="top" leftline="true" rightline="false">
-<column alignment="center" valignment="top" leftline="true" rightline="false">
-<column alignment="center" valignment="top" leftline="true" rightline="false">
-<column alignment="center" valignment="top" leftline="true" rightline="false">
-<column alignment="center" valignment="top" leftline="true" rightline="false">
-<column alignment="center" valignment="top" leftline="true" rightline="false">
-<column alignment="center" valignment="top" leftline="true" rightline="true">
-<row topline="true" bottomline="false">
+<column alignment="center" valignment="top" leftline="true" width="0">
+<column alignment="center" valignment="top" leftline="true" width="0">
+<column alignment="center" valignment="top" leftline="true" width="0">
+<column alignment="center" valignment="top" leftline="true" width="0">
+<column alignment="center" valignment="top" leftline="true" width="0">
+<column alignment="center" valignment="top" leftline="true" width="0">
+<column alignment="center" valignment="top" leftline="true" rightline="true" width="0">
+<row topline="true">
 <cell multicolumn="1" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
@@ -4357,7 +4373,7 @@ time
 \end_inset
 </cell>
 </row>
-<row topline="true" bottomline="false">
+<row topline="true">
 <cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
@@ -4422,7 +4438,7 @@ ATCA Board 1
 \end_inset
 </cell>
 </row>
-<row topline="true" bottomline="false">
+<row topline="true">
 <cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
@@ -4490,7 +4506,7 @@ ATCA Board 2
 \end_inset
 </cell>
 </row>
-<row topline="true" bottomline="false">
+<row topline="true">
 <cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
@@ -4558,7 +4574,7 @@ MARTe
 \end_inset
 </cell>
 </row>
-<row topline="true" bottomline="false">
+<row topline="true">
 <cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
@@ -4623,7 +4639,7 @@ ATCA Board 1
 \end_inset
 </cell>
 </row>
-<row topline="true" bottomline="false">
+<row topline="true">
 <cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
@@ -5326,6 +5342,18 @@ A.
 \end_inset
 
 , Fusion Engineering and Design 82 (2007), 1359-1364.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset LatexCommand bibitem
+key "key-xmpp-core"
+
+\end_inset
+
+P.
+ Saint-Andre, Extensible Messaging and Presence Protocol (XMPP): Core.
+ IETF.
+ RFC 6120, March 2011.
 \end_layout
 
 \begin_layout Bibliography
